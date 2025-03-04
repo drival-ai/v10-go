@@ -3,7 +3,7 @@ package operations
 import (
 	"context"
 
-	"github.com/nightblue-io/vortex-go/conn"
+	"github.com/drival-ai/v12-go/conn"
 )
 
 type GrpcClient struct {

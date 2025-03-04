@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	Endpoint = "api.nightblue.io:443"
+	Endpoint = "api.drival.ai:443"
 )
 
 type clientOptions struct {
