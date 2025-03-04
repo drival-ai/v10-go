@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Protocol Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic"/>
+    <style>
+      body {
+        width: 60em;
+        margin: 1em auto;
+        color: #222;
+        font-family: "Ubuntu", sans-serif;
+        padding-bottom: 4em;
+      }
+
+      h1 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      h2 {
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+        margin: 1.5em 0;
+      }
+
+      h3 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      a {
+        text-decoration: none;
+        color: #567e25;
+      }
+
+      table {
+        width: 100%;
+        font-size: 80%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        font-weight: 700;
+        background-color: #dcdcdc;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #fbfbfb;
+      }
+
+      td {
+        border: 1px solid #ccc;
+        padding: 0.5ex 2ex;
+      }
+
+      td p {
+        text-indent: 1em;
+        margin: 0;
+      }
+
+      td p:nth-child(1) {
+        text-indent: 0;  
+      }
+
+       
+      .field-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(3) {  
+        width: 6em;
+      }
+      .field-table td:nth-child(4) {  
+        width: auto;
+      }
+
+       
+      .extension-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(3) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(4) {  
+        width: 5em;
+      }
+      .extension-table td:nth-child(5) {  
+        width: auto;
+      }
+
+       
+      .enum-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(3) {  
+        width: auto;
+      }
+
+       
+      .scalar-value-types-table tr {
+        height: 3em;
+      }
+
+       
+      #toc-container ul {
+        list-style-type: none;
+        padding-left: 1em;
+        line-height: 180%;
+        margin: 0;
+      }
+      #toc > li > a {
+        font-weight: bold;
+      }
+
+       
+      .file-heading {
+        width: 100%;
+        display: table;
+        border-bottom: 1px solid #aaa;
+        margin: 4em 0 1.5em 0;
+      }
+      .file-heading h2 {
+        border: none;
+        display: table-cell;
+      }
+      .file-heading a {
+        text-align: right;
+        display: table-cell;
+      }
+
+       
+      .badge {
+        width: 1.6em;
+        height: 1.6em;
+        display: inline-block;
+
+        line-height: 1.6em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 60%;
+
+        color: #89ba48;
+        background-color: #dff0c8;
+
+        margin: 0.5ex 1em 0.5ex -1em;
+        border: 1px solid #fbfbfb;
+        border-radius: 1ex;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+  </head>
+
+  <body>
+
+    <h1 id="title">Protocol Documentation</h1>
+
+    <h2>Table of Contents</h2>
+
+    <div id="toc-container">
+      <ul id="toc">
+        
+          
+          <li>
+            <a href="#types%2fcloud.proto">types/cloud.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#vortexproto.types.AWSInfo"><span class="badge">M</span>AWSInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.types.AzureInfo"><span class="badge">M</span>AzureInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.types.GCPInfo"><span class="badge">M</span>GCPInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.types.Location"><span class="badge">M</span>Location</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#types%2foperation.proto">types/operation.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#vortexproto.types.Operation"><span class="badge">M</span>Operation</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#iam%2fv1%2fiam.proto">iam/v1/iam.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#vortexproto.iam.v1.LoginRequest"><span class="badge">M</span>LoginRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.iam.v1.LoginResponse"><span class="badge">M</span>LoginResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.iam.v1.LoginResponse.DeviceAuth"><span class="badge">M</span>LoginResponse.DeviceAuth</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.iam.v1.WhoAmIRequest"><span class="badge">M</span>WhoAmIRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.iam.v1.WhoAmIResponse"><span class="badge">M</span>WhoAmIResponse</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#vortexproto.iam.v1.Iam"><span class="badge">S</span>Iam</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#vortex%2fv1%2fvortex.proto">vortex/v1/vortex.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#vortexproto.vortex.v1.CreateEnvironmentRequest"><span class="badge">M</span>CreateEnvironmentRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.vortex.v1.CreateEnvironmentResponse"><span class="badge">M</span>CreateEnvironmentResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.vortex.v1.DeleteEnvironmentRequest"><span class="badge">M</span>DeleteEnvironmentRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.vortex.v1.DeleteEnvironmentResponse"><span class="badge">M</span>DeleteEnvironmentResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.vortex.v1.DoRequest"><span class="badge">M</span>DoRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.vortex.v1.DoResponse"><span class="badge">M</span>DoResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.vortex.v1.GetEnvironmentRequest"><span class="badge">M</span>GetEnvironmentRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.vortex.v1.GetEnvironmentResponse"><span class="badge">M</span>GetEnvironmentResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.vortex.v1.ListEnvironmentsRequest"><span class="badge">M</span>ListEnvironmentsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.vortex.v1.ListEnvironmentsResponse"><span class="badge">M</span>ListEnvironmentsResponse</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#vortexproto.vortex.v1.Vortex"><span class="badge">S</span>Vortex</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#operations%2fv1%2foperations.proto">operations/v1/operations.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#vortexproto.operations.v1.CancelOperationRequest"><span class="badge">M</span>CancelOperationRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.operations.v1.DeleteOperationRequest"><span class="badge">M</span>DeleteOperationRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.operations.v1.GetOperationRequest"><span class="badge">M</span>GetOperationRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.operations.v1.ListOperationsRequest"><span class="badge">M</span>ListOperationsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.operations.v1.ListOperationsResponse"><span class="badge">M</span>ListOperationsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#vortexproto.operations.v1.WaitOperationRequest"><span class="badge">M</span>WaitOperationRequest</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#vortexproto.operations.v1.Operations"><span class="badge">S</span>Operations</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+        <li><a href="#scalar-value-types">Scalar Value Types</a></li>
+      </ul>
+    </div>
+
+    
+      
+      <div class="file-heading">
+        <h2 id="types/cloud.proto">types/cloud.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="vortexproto.types.AWSInfo">AWSInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>role_arn</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Prioritized over id/secret. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>client_id_arn</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>client_secret</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>location</td>
+                  <td><a href="#vortexproto.types.Location">Location</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.types.AzureInfo">AzureInfo</h3>
+        <p></p>
+
+        
+
+        
+      
+        <h3 id="vortexproto.types.GCPInfo">GCPInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>service_account</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>location</td>
+                  <td><a href="#vortexproto.types.Location">Location</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.types.Location">Location</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>active_zone</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>If set, prioritize over active region. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>active_region</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Valid only when active zone is not set. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>passive_zone</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>If set, prioritize over passive region. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>passive_region</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Valid only when passive zone is not set. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="types/operation.proto">types/operation.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="vortexproto.types.Operation">Operation</h3>
+        <p>This resource represents a long-running operation that is the result of a</p><p>network API call.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The server-assigned name, which is only unique within the same service that
+originally returns it. If you use the default HTTP mapping, the
+`name` should be a resource name ending with `operations/{unique_id}`. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>metadata</td>
+                  <td><a href="#google.protobuf.Any">google.protobuf.Any</a></td>
+                  <td></td>
+                  <td><p>Service-specific metadata associated with the operation.  It typically
+contains progress information and common metadata such as create time.
+Some services might not provide such metadata.  Any method that returns a
+long-running operation should document the metadata type, if any. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>done</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is
+available. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>error</td>
+                  <td><a href="#google.rpc.Status">google.rpc.Status</a></td>
+                  <td></td>
+                  <td><p>The error result of the operation in case of failure or cancellation. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>response</td>
+                  <td><a href="#google.protobuf.Any">google.protobuf.Any</a></td>
+                  <td></td>
+                  <td><p>The normal response of the operation in case of success.  If the original
+method returns no data on success, such as `Delete`, the response is
+`google.protobuf.Empty`.  If the original method is standard
+`Get`/`Create`/`Update`, the response should be the resource.  For other
+methods, the response should have the type `XxxResponse`, where `Xxx`
+is the original method name.  For example, if the original method name
+is `TakeSnapshot()`, the inferred response type is
+`TakeSnapshotResponse`. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="iam/v1/iam.proto">iam/v1/iam.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="vortexproto.iam.v1.LoginRequest">LoginRequest</h3>
+        <p>Request message for the Login rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>access_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Optional. If set, use to call user profile. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>password</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>device_auth</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Optional. If non-empty, do a device auth flow. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.iam.v1.LoginResponse">LoginResponse</h3>
+        <p>Response message for the Login rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>device_auth</td>
+                  <td><a href="#vortexproto.iam.v1.LoginResponse.DeviceAuth">LoginResponse.DeviceAuth</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>access_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#google.rpc.Status">google.rpc.Status</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.iam.v1.LoginResponse.DeviceAuth">LoginResponse.DeviceAuth</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>user_code</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>verification_uri_complete</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>expires_in</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.iam.v1.WhoAmIRequest">WhoAmIRequest</h3>
+        <p>Request message for the WhoAmI rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>access_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.iam.v1.WhoAmIResponse">WhoAmIResponse</h3>
+        <p>Request message for the WhoAmI rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>email</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="vortexproto.iam.v1.Iam">Iam</h3>
+        <p>Iam service definition.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>Login</td>
+                <td><a href="#vortexproto.iam.v1.LoginRequest">LoginRequest</a></td>
+                <td><a href="#vortexproto.iam.v1.LoginResponse">LoginResponse</a> stream</td>
+                <td><p>Create an account for the Vortex Platform.</p></td>
+              </tr>
+            
+              <tr>
+                <td>WhoAmI</td>
+                <td><a href="#vortexproto.iam.v1.WhoAmIRequest">WhoAmIRequest</a></td>
+                <td><a href="#vortexproto.iam.v1.WhoAmIResponse">WhoAmIResponse</a></td>
+                <td><p>Testing endpoint.</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+          
+          
+          <h4>Methods with HTTP bindings</h4>
+          <table>
+            <thead>
+              <tr>
+                <td>Method Name</td>
+                <td>Method</td>
+                <td>Pattern</td>
+                <td>Body</td>
+              </tr>
+            </thead>
+            <tbody>
+            
+              
+              
+              <tr>
+                <td>Login</td>
+                <td>POST</td>
+                <td>/vortex/iam/v1/login</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>WhoAmI</td>
+                <td>GET</td>
+                <td>/vortex/iam/v1/whoami</td>
+                <td></td>
+              </tr>
+              
+            
+            </tbody>
+          </table>
+          
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="vortex/v1/vortex.proto">vortex/v1/vortex.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="vortexproto.vortex.v1.CreateEnvironmentRequest">CreateEnvironmentRequest</h3>
+        <p>Request message for the CreateEnvironment rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>profile</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Valid values:
+
+SC_MR_GCP
+SC_SR_GCP
+SC_MR_AWS
+SC_SR_AWS
+MC_AUTO </p></td>
+                </tr>
+              
+                <tr>
+                  <td>gcp_info</td>
+                  <td><a href="#vortexproto.types.GCPInfo">vortexproto.types.GCPInfo</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>aws_info</td>
+                  <td><a href="#vortexproto.types.AWSInfo">vortexproto.types.AWSInfo</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>azure_info</td>
+                  <td><a href="#vortexproto.types.AzureInfo">vortexproto.types.AzureInfo</a></td>
+                  <td></td>
+                  <td><p>TBD. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.vortex.v1.CreateEnvironmentResponse">CreateEnvironmentResponse</h3>
+        <p>Response message for the CreateEnvironment rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation</td>
+                  <td><a href="#vortexproto.types.Operation">vortexproto.types.Operation</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.vortex.v1.DeleteEnvironmentRequest">DeleteEnvironmentRequest</h3>
+        <p>Request message for the DeleteEnvironment rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.vortex.v1.DeleteEnvironmentResponse">DeleteEnvironmentResponse</h3>
+        <p>Response message for the DeleteEnvironment rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.vortex.v1.DoRequest">DoRequest</h3>
+        <p>Request message for the Do rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.vortex.v1.DoResponse">DoResponse</h3>
+        <p>Response message for the Do rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.vortex.v1.GetEnvironmentRequest">GetEnvironmentRequest</h3>
+        <p>Request message for the GetEnvironment rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.vortex.v1.GetEnvironmentResponse">GetEnvironmentResponse</h3>
+        <p>Response message for the GetEnvironment rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.vortex.v1.ListEnvironmentsRequest">ListEnvironmentsRequest</h3>
+        <p>Request message for the ListEnvironments rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.vortex.v1.ListEnvironmentsResponse">ListEnvironmentsResponse</h3>
+        <p>Response message for the ListEnvironments rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="vortexproto.vortex.v1.Vortex">Vortex</h3>
+        <p>Vortex service definition.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CreateEnvironment</td>
+                <td><a href="#vortexproto.vortex.v1.CreateEnvironmentRequest">CreateEnvironmentRequest</a></td>
+                <td><a href="#vortexproto.vortex.v1.CreateEnvironmentResponse">CreateEnvironmentResponse</a></td>
+                <td><p>Create a deployment environment.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetEnvironment</td>
+                <td><a href="#vortexproto.vortex.v1.GetEnvironmentRequest">GetEnvironmentRequest</a></td>
+                <td><a href="#vortexproto.vortex.v1.GetEnvironmentResponse">GetEnvironmentResponse</a></td>
+                <td><p>Describe a deployment environment.</p></td>
+              </tr>
+            
+              <tr>
+                <td>ListEnvironments</td>
+                <td><a href="#vortexproto.vortex.v1.ListEnvironmentsRequest">ListEnvironmentsRequest</a></td>
+                <td><a href="#vortexproto.vortex.v1.ListEnvironmentsResponse">ListEnvironmentsResponse</a></td>
+                <td><p>List deployment environments.</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteEnvironment</td>
+                <td><a href="#vortexproto.vortex.v1.DeleteEnvironmentRequest">DeleteEnvironmentRequest</a></td>
+                <td><a href="#vortexproto.vortex.v1.DeleteEnvironmentResponse">DeleteEnvironmentResponse</a></td>
+                <td><p>Delete a deployment environment.</p></td>
+              </tr>
+            
+              <tr>
+                <td>Do</td>
+                <td><a href="#vortexproto.vortex.v1.DoRequest">DoRequest</a></td>
+                <td><a href="#vortexproto.vortex.v1.DoResponse">DoResponse</a></td>
+                <td><p>Testing endpoint.</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+          
+          
+          <h4>Methods with HTTP bindings</h4>
+          <table>
+            <thead>
+              <tr>
+                <td>Method Name</td>
+                <td>Method</td>
+                <td>Pattern</td>
+                <td>Body</td>
+              </tr>
+            </thead>
+            <tbody>
+            
+              
+              
+              <tr>
+                <td>CreateEnvironment</td>
+                <td>POST</td>
+                <td>/vortex/v1/envs</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetEnvironment</td>
+                <td>GET</td>
+                <td>/vortex/v1/envs/{name}</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>ListEnvironments</td>
+                <td>GET</td>
+                <td>/vortex/v1/envs</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>DeleteEnvironment</td>
+                <td>DELETE</td>
+                <td>/vortex/v1/envs/{name}</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>Do</td>
+                <td>POST</td>
+                <td>/vortex/v1:do</td>
+                <td>*</td>
+              </tr>
+              
+            
+            </tbody>
+          </table>
+          
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="operations/v1/operations.proto">operations/v1/operations.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="vortexproto.operations.v1.CancelOperationRequest">CancelOperationRequest</h3>
+        <p>Request message for the CancelOperation rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.operations.v1.DeleteOperationRequest">DeleteOperationRequest</h3>
+        <p>Request message for the DeleteOperation rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.operations.v1.GetOperationRequest">GetOperationRequest</h3>
+        <p>Request message for the GetOperation rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.operations.v1.ListOperationsRequest">ListOperationsRequest</h3>
+        <p>Request message for the ListOperations rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>next_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.operations.v1.ListOperationsResponse">ListOperationsResponse</h3>
+        <p>Response message for the ListOperations rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>operations</td>
+                  <td><a href="#vortexproto.types.Operation">vortexproto.types.Operation</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>next_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="vortexproto.operations.v1.WaitOperationRequest">WaitOperationRequest</h3>
+        <p>Request message for the WaitOperation rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="vortexproto.operations.v1.Operations">Operations</h3>
+        <p>Operations service definition.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ListOperations</td>
+                <td><a href="#vortexproto.operations.v1.ListOperationsRequest">ListOperationsRequest</a></td>
+                <td><a href="#vortexproto.operations.v1.ListOperationsResponse">ListOperationsResponse</a></td>
+                <td><p>List long-running operations.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetOperation</td>
+                <td><a href="#vortexproto.operations.v1.GetOperationRequest">GetOperationRequest</a></td>
+                <td><a href="#vortexproto.types.Operation">.vortexproto.types.Operation</a></td>
+                <td><p>Get a long-running operation.</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteOperation</td>
+                <td><a href="#vortexproto.operations.v1.DeleteOperationRequest">DeleteOperationRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>Delete a long-running operation.</p></td>
+              </tr>
+            
+              <tr>
+                <td>CancelOperation</td>
+                <td><a href="#vortexproto.operations.v1.CancelOperationRequest">CancelOperationRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>Cancel a long-running operation.</p></td>
+              </tr>
+            
+              <tr>
+                <td>WaitOperation</td>
+                <td><a href="#vortexproto.operations.v1.WaitOperationRequest">WaitOperationRequest</a></td>
+                <td><a href="#vortexproto.types.Operation">.vortexproto.types.Operation</a></td>
+                <td><p>Wait on a long-running operation.</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+          
+          
+          <h4>Methods with HTTP bindings</h4>
+          <table>
+            <thead>
+              <tr>
+                <td>Method Name</td>
+                <td>Method</td>
+                <td>Pattern</td>
+                <td>Body</td>
+              </tr>
+            </thead>
+            <tbody>
+            
+              
+              
+              <tr>
+                <td>ListOperations</td>
+                <td>GET</td>
+                <td>/vortex/ops/v1</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetOperation</td>
+                <td>GET</td>
+                <td>/vortex/ops/v1/{name}</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>DeleteOperation</td>
+                <td>DELETE</td>
+                <td>/vortex/ops/v1/{name}</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>CancelOperation</td>
+                <td>POST</td>
+                <td>/vortex/ops/v1/{name}:cancel</td>
+                <td>*</td>
+              </tr>
+              
+            
+            </tbody>
+          </table>
+          
+        
+    
+
+    <h2 id="scalar-value-types">Scalar Value Types</h2>
+    <table class="scalar-value-types-table">
+      <thead>
+        <tr><td>.proto Type</td><td>Notes</td><td>C++</td><td>Java</td><td>Python</td><td>Go</td><td>C#</td><td>PHP</td><td>Ruby</td></tr>
+      </thead>
+      <tbody>
+        
+          <tr id="double">
+            <td>double</td>
+            <td></td>
+            <td>double</td>
+            <td>double</td>
+            <td>float</td>
+            <td>float64</td>
+            <td>double</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="float">
+            <td>float</td>
+            <td></td>
+            <td>float</td>
+            <td>float</td>
+            <td>float</td>
+            <td>float32</td>
+            <td>float</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="int32">
+            <td>int32</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="int64">
+            <td>int64</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="uint32">
+            <td>uint32</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int/long</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="uint64">
+            <td>uint64</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint32">
+            <td>sint32</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint64">
+            <td>sint64</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="fixed32">
+            <td>fixed32</td>
+            <td>Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="fixed64">
+            <td>fixed64</td>
+            <td>Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="sfixed32">
+            <td>sfixed32</td>
+            <td>Always four bytes.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sfixed64">
+            <td>sfixed64</td>
+            <td>Always eight bytes.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="bool">
+            <td>bool</td>
+            <td></td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>boolean</td>
+            <td>bool</td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>TrueClass/FalseClass</td>
+          </tr>
+        
+          <tr id="string">
+            <td>string</td>
+            <td>A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
+            <td>string</td>
+            <td>String</td>
+            <td>str/unicode</td>
+            <td>string</td>
+            <td>string</td>
+            <td>string</td>
+            <td>String (UTF-8)</td>
+          </tr>
+        
+          <tr id="bytes">
+            <td>bytes</td>
+            <td>May contain any arbitrary sequence of bytes.</td>
+            <td>string</td>
+            <td>ByteString</td>
+            <td>str</td>
+            <td>[]byte</td>
+            <td>ByteString</td>
+            <td>string</td>
+            <td>String (ASCII-8BIT)</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </body>
+</html>
+
