@@ -3,7 +3,7 @@ package operations
 import (
 	"context"
 
-	"github.com/drival-ai/v12-go/conn"
+	"github.com/drival-ai/v10-go/conn"
 )
 
 type GrpcClient struct {

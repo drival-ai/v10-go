@@ -1,4 +1,4 @@
-module github.com/drival-ai/v12-go
+module github.com/drival-ai/v10-go
 
 go 1.23.0
 
