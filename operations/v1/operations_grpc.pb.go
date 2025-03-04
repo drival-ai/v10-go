@@ -8,7 +8,7 @@ package operations
 
 import (
 	context "context"
-	types "github.com/nightblue-io/v12-go/types"
+	types "github.com/drival-ai/v12-go/types"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
