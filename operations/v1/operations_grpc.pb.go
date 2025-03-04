@@ -8,7 +8,7 @@ package operations
 
 import (
 	context "context"
-	types "github.com/drival-ai/v12-go/types"
+	types "github.com/drival-ai/v10-go/types"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -21,11 +21,11 @@ import (
 const _ = grpc.SupportPackageIsVersion8
 
 const (
-	Operations_ListOperations_FullMethodName  = "/v12proto.operations.v1.Operations/ListOperations"
-	Operations_GetOperation_FullMethodName    = "/v12proto.operations.v1.Operations/GetOperation"
-	Operations_DeleteOperation_FullMethodName = "/v12proto.operations.v1.Operations/DeleteOperation"
-	Operations_CancelOperation_FullMethodName = "/v12proto.operations.v1.Operations/CancelOperation"
-	Operations_WaitOperation_FullMethodName   = "/v12proto.operations.v1.Operations/WaitOperation"
+	Operations_ListOperations_FullMethodName  = "/v10proto.operations.v1.Operations/ListOperations"
+	Operations_GetOperation_FullMethodName    = "/v10proto.operations.v1.Operations/GetOperation"
+	Operations_DeleteOperation_FullMethodName = "/v10proto.operations.v1.Operations/DeleteOperation"
+	Operations_CancelOperation_FullMethodName = "/v10proto.operations.v1.Operations/CancelOperation"
+	Operations_WaitOperation_FullMethodName   = "/v10proto.operations.v1.Operations/WaitOperation"
 )
 
 // OperationsClient is the client API for Operations service.
@@ -249,7 +249,7 @@ func _Operations_WaitOperation_Handler(srv interface{}, ctx context.Context, dec
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Operations_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "v12proto.operations.v1.Operations",
+	ServiceName: "v10proto.operations.v1.Operations",
 	HandlerType: (*OperationsServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

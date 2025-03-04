@@ -106,7 +106,7 @@ func RegisterIamHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/v12proto.iam.v1.Iam/WhoAmI", runtime.WithHTTPPathPattern("/v12/iam/v1/whoami"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/v10proto.iam.v1.Iam/WhoAmI", runtime.WithHTTPPathPattern("/v10/iam/v1/whoami"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -164,7 +164,7 @@ func RegisterIamHandlerClient(ctx context.Context, mux *runtime.ServeMux, client
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/v12proto.iam.v1.Iam/Login", runtime.WithHTTPPathPattern("/v12/iam/v1/login"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/v10proto.iam.v1.Iam/Login", runtime.WithHTTPPathPattern("/v10/iam/v1/login"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -181,7 +181,7 @@ func RegisterIamHandlerClient(ctx context.Context, mux *runtime.ServeMux, client
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/v12proto.iam.v1.Iam/WhoAmI", runtime.WithHTTPPathPattern("/v12/iam/v1/whoami"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/v10proto.iam.v1.Iam/WhoAmI", runtime.WithHTTPPathPattern("/v10/iam/v1/whoami"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -198,8 +198,8 @@ func RegisterIamHandlerClient(ctx context.Context, mux *runtime.ServeMux, client
 }
 
 var (
-	pattern_Iam_Login_0  = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"v12", "iam", "v1", "login"}, ""))
-	pattern_Iam_WhoAmI_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"v12", "iam", "v1", "whoami"}, ""))
+	pattern_Iam_Login_0  = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"v10", "iam", "v1", "login"}, ""))
+	pattern_Iam_WhoAmI_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"v10", "iam", "v1", "whoami"}, ""))
 )
 
 var (
