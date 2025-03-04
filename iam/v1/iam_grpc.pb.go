@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion8
 
 const (
-	Iam_Login_FullMethodName  = "/vortexproto.iam.v1.Iam/Login"
-	Iam_WhoAmI_FullMethodName = "/vortexproto.iam.v1.Iam/WhoAmI"
+	Iam_Login_FullMethodName  = "/v12proto.iam.v1.Iam/Login"
+	Iam_WhoAmI_FullMethodName = "/v12proto.iam.v1.Iam/WhoAmI"
 )
 
 // IamClient is the client API for Iam service.
@@ -29,7 +29,7 @@ const (
 //
 // Iam service definition.
 type IamClient interface {
-	// Create an account for the Vortex Platform.
+	// Create an account for the V12 Platform.
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (Iam_LoginClient, error)
 	// Testing endpoint.
 	WhoAmI(ctx context.Context, in *WhoAmIRequest, opts ...grpc.CallOption) (*WhoAmIResponse, error)
@@ -92,7 +92,7 @@ func (c *iamClient) WhoAmI(ctx context.Context, in *WhoAmIRequest, opts ...grpc.
 //
 // Iam service definition.
 type IamServer interface {
-	// Create an account for the Vortex Platform.
+	// Create an account for the V12 Platform.
 	Login(*LoginRequest, Iam_LoginServer) error
 	// Testing endpoint.
 	WhoAmI(context.Context, *WhoAmIRequest) (*WhoAmIResponse, error)
@@ -165,7 +165,7 @@ func _Iam_WhoAmI_Handler(srv interface{}, ctx context.Context, dec func(interfac
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Iam_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "vortexproto.iam.v1.Iam",
+	ServiceName: "v12proto.iam.v1.Iam",
 	HandlerType: (*IamServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
