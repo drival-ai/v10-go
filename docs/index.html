@@ -256,43 +256,11 @@
             <ul>
               
                 <li>
-                  <a href="#v10proto.base.v1.CreateEnvironmentRequest"><span class="badge">M</span>CreateEnvironmentRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#v10proto.base.v1.CreateEnvironmentResponse"><span class="badge">M</span>CreateEnvironmentResponse</a>
-                </li>
-              
-                <li>
-                  <a href="#v10proto.base.v1.DeleteEnvironmentRequest"><span class="badge">M</span>DeleteEnvironmentRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#v10proto.base.v1.DeleteEnvironmentResponse"><span class="badge">M</span>DeleteEnvironmentResponse</a>
-                </li>
-              
-                <li>
                   <a href="#v10proto.base.v1.DoRequest"><span class="badge">M</span>DoRequest</a>
                 </li>
               
                 <li>
                   <a href="#v10proto.base.v1.DoResponse"><span class="badge">M</span>DoResponse</a>
-                </li>
-              
-                <li>
-                  <a href="#v10proto.base.v1.GetEnvironmentRequest"><span class="badge">M</span>GetEnvironmentRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#v10proto.base.v1.GetEnvironmentResponse"><span class="badge">M</span>GetEnvironmentResponse</a>
-                </li>
-              
-                <li>
-                  <a href="#v10proto.base.v1.ListEnvironmentsRequest"><span class="badge">M</span>ListEnvironmentsRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#v10proto.base.v1.ListEnvironmentsResponse"><span class="badge">M</span>ListEnvironmentsResponse</a>
                 </li>
               
               
@@ -839,143 +807,6 @@ is `TakeSnapshot()`, the inferred response type is
       <p></p>
 
       
-        <h3 id="v10proto.base.v1.CreateEnvironmentRequest">CreateEnvironmentRequest</h3>
-        <p>Request message for the CreateEnvironment rpc.</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>profile</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Valid values:
-
-SC_MR_GCP
-SC_SR_GCP
-SC_MR_AWS
-SC_SR_AWS
-MC_AUTO </p></td>
-                </tr>
-              
-                <tr>
-                  <td>gcp_info</td>
-                  <td><a href="#v10proto.types.GCPInfo">v10proto.types.GCPInfo</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>aws_info</td>
-                  <td><a href="#v10proto.types.AWSInfo">v10proto.types.AWSInfo</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>azure_info</td>
-                  <td><a href="#v10proto.types.AzureInfo">v10proto.types.AzureInfo</a></td>
-                  <td></td>
-                  <td><p>TBD. </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="v10proto.base.v1.CreateEnvironmentResponse">CreateEnvironmentResponse</h3>
-        <p>Response message for the CreateEnvironment rpc.</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>operation</td>
-                  <td><a href="#v10proto.types.Operation">v10proto.types.Operation</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="v10proto.base.v1.DeleteEnvironmentRequest">DeleteEnvironmentRequest</h3>
-        <p>Request message for the DeleteEnvironment rpc.</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="v10proto.base.v1.DeleteEnvironmentResponse">DeleteEnvironmentResponse</h3>
-        <p>Response message for the DeleteEnvironment rpc.</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="v10proto.base.v1.DoRequest">DoRequest</h3>
         <p>Request message for the Do rpc.</p>
 
@@ -1024,102 +855,6 @@ MC_AUTO </p></td>
 
         
       
-        <h3 id="v10proto.base.v1.GetEnvironmentRequest">GetEnvironmentRequest</h3>
-        <p>Request message for the GetEnvironment rpc.</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="v10proto.base.v1.GetEnvironmentResponse">GetEnvironmentResponse</h3>
-        <p>Response message for the GetEnvironment rpc.</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="v10proto.base.v1.ListEnvironmentsRequest">ListEnvironmentsRequest</h3>
-        <p>Request message for the ListEnvironments rpc.</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="v10proto.base.v1.ListEnvironmentsResponse">ListEnvironmentsResponse</h3>
-        <p>Response message for the ListEnvironments rpc.</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
 
       
 
@@ -1133,34 +868,6 @@ MC_AUTO </p></td>
             <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
           </thead>
           <tbody>
-            
-              <tr>
-                <td>CreateEnvironment</td>
-                <td><a href="#v10proto.base.v1.CreateEnvironmentRequest">CreateEnvironmentRequest</a></td>
-                <td><a href="#v10proto.base.v1.CreateEnvironmentResponse">CreateEnvironmentResponse</a></td>
-                <td><p>Create a deployment environment.</p></td>
-              </tr>
-            
-              <tr>
-                <td>GetEnvironment</td>
-                <td><a href="#v10proto.base.v1.GetEnvironmentRequest">GetEnvironmentRequest</a></td>
-                <td><a href="#v10proto.base.v1.GetEnvironmentResponse">GetEnvironmentResponse</a></td>
-                <td><p>Describe a deployment environment.</p></td>
-              </tr>
-            
-              <tr>
-                <td>ListEnvironments</td>
-                <td><a href="#v10proto.base.v1.ListEnvironmentsRequest">ListEnvironmentsRequest</a></td>
-                <td><a href="#v10proto.base.v1.ListEnvironmentsResponse">ListEnvironmentsResponse</a></td>
-                <td><p>List deployment environments.</p></td>
-              </tr>
-            
-              <tr>
-                <td>DeleteEnvironment</td>
-                <td><a href="#v10proto.base.v1.DeleteEnvironmentRequest">DeleteEnvironmentRequest</a></td>
-                <td><a href="#v10proto.base.v1.DeleteEnvironmentResponse">DeleteEnvironmentResponse</a></td>
-                <td><p>Delete a deployment environment.</p></td>
-              </tr>
             
               <tr>
                 <td>Do</td>
@@ -1186,46 +893,6 @@ MC_AUTO </p></td>
               </tr>
             </thead>
             <tbody>
-            
-              
-              
-              <tr>
-                <td>CreateEnvironment</td>
-                <td>POST</td>
-                <td>/v10/v1/envs</td>
-                <td>*</td>
-              </tr>
-              
-            
-              
-              
-              <tr>
-                <td>GetEnvironment</td>
-                <td>GET</td>
-                <td>/v10/v1/envs/{name}</td>
-                <td></td>
-              </tr>
-              
-            
-              
-              
-              <tr>
-                <td>ListEnvironments</td>
-                <td>GET</td>
-                <td>/v10/v1/envs</td>
-                <td></td>
-              </tr>
-              
-            
-              
-              
-              <tr>
-                <td>DeleteEnvironment</td>
-                <td>DELETE</td>
-                <td>/v10/v1/envs/{name}</td>
-                <td></td>
-              </tr>
-              
             
               
               
