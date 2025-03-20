@@ -263,6 +263,10 @@
                   <a href="#v10proto.base.v1.DoResponse"><span class="badge">M</span>DoResponse</a>
                 </li>
               
+                <li>
+                  <a href="#v10proto.base.v1.RegisterVehicleRequest"><span class="badge">M</span>RegisterVehicleRequest</a>
+                </li>
+              
               
               
               
@@ -855,6 +859,30 @@ is `TakeSnapshot()`, the inferred response type is
 
         
       
+        <h3 id="v10proto.base.v1.RegisterVehicleRequest">RegisterVehicleRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>chasisNumber</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
 
       
 
@@ -874,6 +902,13 @@ is `TakeSnapshot()`, the inferred response type is
                 <td><a href="#v10proto.base.v1.DoRequest">DoRequest</a></td>
                 <td><a href="#v10proto.base.v1.DoResponse">DoResponse</a></td>
                 <td><p>Testing endpoint.</p></td>
+              </tr>
+            
+              <tr>
+                <td>RegisterVehicle</td>
+                <td><a href="#v10proto.base.v1.RegisterVehicleRequest">RegisterVehicleRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
               </tr>
             
           </tbody>
@@ -900,6 +935,16 @@ is `TakeSnapshot()`, the inferred response type is
                 <td>Do</td>
                 <td>POST</td>
                 <td>/v10/v1:do</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>RegisterVehicle</td>
+                <td>POST</td>
+                <td>/v10/vehicle/register</td>
                 <td>*</td>
               </tr>
               
