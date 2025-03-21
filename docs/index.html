@@ -229,7 +229,11 @@
                 </li>
               
                 <li>
-                  <a href="#v10proto.iam.v1.LoginResponse.DeviceAuth"><span class="badge">M</span>LoginResponse.DeviceAuth</a>
+                  <a href="#v10proto.iam.v1.RegisterRequest"><span class="badge">M</span>RegisterRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#v10proto.iam.v1.RegisterResponse"><span class="badge">M</span>RegisterResponse</a>
                 </li>
               
                 <li>
@@ -561,14 +565,14 @@ is `TakeSnapshot()`, the inferred response type is
             <tbody>
               
                 <tr>
-                  <td>access_token</td>
+                  <td>token</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>Optional. If set, use to call user profile. </p></td>
+                  <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>id</td>
+                  <td>email</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -579,13 +583,6 @@ is `TakeSnapshot()`, the inferred response type is
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>device_auth</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Optional. If non-empty, do a device auth flow. </p></td>
                 </tr>
               
             </tbody>
@@ -604,13 +601,6 @@ is `TakeSnapshot()`, the inferred response type is
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>device_auth</td>
-                  <td><a href="#v10proto.iam.v1.LoginResponse.DeviceAuth">LoginResponse.DeviceAuth</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
               
                 <tr>
                   <td>access_token</td>
@@ -633,8 +623,8 @@ is `TakeSnapshot()`, the inferred response type is
 
         
       
-        <h3 id="v10proto.iam.v1.LoginResponse.DeviceAuth">LoginResponse.DeviceAuth</h3>
-        <p></p>
+        <h3 id="v10proto.iam.v1.RegisterRequest">RegisterRequest</h3>
+        <p>Request message for the Register rpc.</p>
 
         
           <table class="field-table">
@@ -644,22 +634,22 @@ is `TakeSnapshot()`, the inferred response type is
             <tbody>
               
                 <tr>
-                  <td>user_code</td>
+                  <td>token</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>verification_uri_complete</td>
+                  <td>email</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>expires_in</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td>password</td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -671,8 +661,8 @@ is `TakeSnapshot()`, the inferred response type is
 
         
       
-        <h3 id="v10proto.iam.v1.WhoAmIRequest">WhoAmIRequest</h3>
-        <p>Request message for the WhoAmI rpc.</p>
+        <h3 id="v10proto.iam.v1.RegisterResponse">RegisterResponse</h3>
+        <p>Response message for the Register rpc.</p>
 
         
           <table class="field-table">
@@ -688,10 +678,24 @@ is `TakeSnapshot()`, the inferred response type is
                   <td><p> </p></td>
                 </tr>
               
+                <tr>
+                  <td>status</td>
+                  <td><a href="#google.rpc.Status">google.rpc.Status</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
           
+
+        
+      
+        <h3 id="v10proto.iam.v1.WhoAmIRequest">WhoAmIRequest</h3>
+        <p>Request message for the WhoAmI rpc.</p>
+
+        
 
         
       
@@ -748,10 +752,17 @@ is `TakeSnapshot()`, the inferred response type is
           <tbody>
             
               <tr>
+                <td>Register</td>
+                <td><a href="#v10proto.iam.v1.RegisterRequest">RegisterRequest</a></td>
+                <td><a href="#v10proto.iam.v1.RegisterResponse">RegisterResponse</a></td>
+                <td><p>Register an account.</p></td>
+              </tr>
+            
+              <tr>
                 <td>Login</td>
                 <td><a href="#v10proto.iam.v1.LoginRequest">LoginRequest</a></td>
-                <td><a href="#v10proto.iam.v1.LoginResponse">LoginResponse</a> stream</td>
-                <td><p>Create an account for the V10 Platform.</p></td>
+                <td><a href="#v10proto.iam.v1.LoginResponse">LoginResponse</a></td>
+                <td><p>Login an account.</p></td>
               </tr>
             
               <tr>
@@ -778,6 +789,16 @@ is `TakeSnapshot()`, the inferred response type is
               </tr>
             </thead>
             <tbody>
+            
+              
+              
+              <tr>
+                <td>Register</td>
+                <td>POST</td>
+                <td>/v10/iam/v1/register</td>
+                <td>*</td>
+              </tr>
+              
             
               
               
