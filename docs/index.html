@@ -268,7 +268,19 @@
                 </li>
               
                 <li>
+                  <a href="#v10proto.base.v1.ListVehiclesRequest"><span class="badge">M</span>ListVehiclesRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#v10proto.base.v1.ListVehiclesResponse"><span class="badge">M</span>ListVehiclesResponse</a>
+                </li>
+              
+                <li>
                   <a href="#v10proto.base.v1.RegisterVehicleRequest"><span class="badge">M</span>RegisterVehicleRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#v10proto.base.v1.Vehicle"><span class="badge">M</span>Vehicle</a>
                 </li>
               
               
@@ -880,8 +892,63 @@ is `TakeSnapshot()`, the inferred response type is
 
         
       
+        <h3 id="v10proto.base.v1.ListVehiclesRequest">ListVehiclesRequest</h3>
+        <p>Request message for the RegisterVehicle rpc.</p>
+
+        
+
+        
+      
+        <h3 id="v10proto.base.v1.ListVehiclesResponse">ListVehiclesResponse</h3>
+        <p>Response message for the ListVehicles rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>vehicle</td>
+                  <td><a href="#v10proto.base.v1.Vehicle">Vehicle</a></td>
+                  <td>repeated</td>
+                  <td><p>Either chassis number or vin must be provided. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="v10proto.base.v1.RegisterVehicleRequest">RegisterVehicleRequest</h3>
-        <p></p>
+        <p>Request message for the RegisterVehicle rpc.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>vehicle</td>
+                  <td><a href="#v10proto.base.v1.Vehicle">Vehicle</a></td>
+                  <td></td>
+                  <td><p>Either chassis number or vin must be provided. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="v10proto.base.v1.Vehicle">Vehicle</h3>
+        <p>Vehicle message definition.</p>
 
         
           <table class="field-table">
@@ -894,7 +961,7 @@ is `TakeSnapshot()`, the inferred response type is
                   <td>chassisNumber</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>Either chassis number or vin must be provided. </p></td>
+                  <td><p> </p></td>
                 </tr>
               
                 <tr>
@@ -964,7 +1031,14 @@ is `TakeSnapshot()`, the inferred response type is
                 <td>RegisterVehicle</td>
                 <td><a href="#v10proto.base.v1.RegisterVehicleRequest">RegisterVehicleRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p></p></td>
+                <td><p>Vehicle manual registration endpoint.</p></td>
+              </tr>
+            
+              <tr>
+                <td>ListVehicles</td>
+                <td><a href="#v10proto.base.v1.ListVehiclesRequest">ListVehiclesRequest</a></td>
+                <td><a href="#v10proto.base.v1.ListVehiclesResponse">ListVehiclesResponse</a></td>
+                <td><p>List vehicles owned by the user.</p></td>
               </tr>
             
           </tbody>
@@ -1002,6 +1076,16 @@ is `TakeSnapshot()`, the inferred response type is
                 <td>POST</td>
                 <td>/v10/vehicle/register</td>
                 <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>ListVehicles</td>
+                <td>GET</td>
+                <td>/v10/vehicle/list</td>
+                <td></td>
               </tr>
               
             
