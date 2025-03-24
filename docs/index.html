@@ -284,6 +284,10 @@
                 </li>
               
                 <li>
+                  <a href="#v10proto.base.v1.UpdateVehicleRequest"><span class="badge">M</span>UpdateVehicleRequest</a>
+                </li>
+              
+                <li>
                   <a href="#v10proto.base.v1.Vehicle"><span class="badge">M</span>Vehicle</a>
                 </li>
               
@@ -982,6 +986,37 @@ is `TakeSnapshot()`, the inferred response type is
 
         
       
+        <h3 id="v10proto.base.v1.UpdateVehicleRequest">UpdateVehicleRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>vin</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Required. Vehicle Identification Number (VIN) to update. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>vehicle</td>
+                  <td><a href="#v10proto.base.v1.Vehicle">Vehicle</a></td>
+                  <td></td>
+                  <td><p>Required. Vehicle data. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="v10proto.base.v1.Vehicle">Vehicle</h3>
         <p>Vehicle message definition.</p>
 
@@ -1073,7 +1108,14 @@ is `TakeSnapshot()`, the inferred response type is
                 <td>DeleteVehicle</td>
                 <td><a href="#v10proto.base.v1.DeleteVehicleRequest">DeleteVehicleRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p></p></td>
+                <td><p>Delete vehicle by VIN.</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateVehicle</td>
+                <td><a href="#v10proto.base.v1.UpdateVehicleRequest">UpdateVehicleRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>Update vehicle by VIN.</p></td>
               </tr>
             
           </tbody>
@@ -1131,6 +1173,16 @@ is `TakeSnapshot()`, the inferred response type is
                 <td>DELETE</td>
                 <td>/v10/vehicle/{vin}</td>
                 <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>UpdateVehicle</td>
+                <td>PUT</td>
+                <td>/v10/vehicle/{vin}</td>
+                <td>*</td>
               </tr>
               
             
