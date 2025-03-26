@@ -225,7 +225,7 @@ func local_request_V10_UpdateUserMetadata_0(ctx context.Context, marshaler runti
 
 func request_V10_StartTrip_0(ctx context.Context, marshaler runtime.Marshaler, client V10Client, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq CreateTripRequest
+		protoReq StartTripRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
@@ -237,7 +237,7 @@ func request_V10_StartTrip_0(ctx context.Context, marshaler runtime.Marshaler, c
 
 func local_request_V10_StartTrip_0(ctx context.Context, marshaler runtime.Marshaler, server V10Server, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq CreateTripRequest
+		protoReq StartTripRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {

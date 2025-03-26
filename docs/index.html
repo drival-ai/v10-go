@@ -260,10 +260,6 @@
             <ul>
               
                 <li>
-                  <a href="#v10proto.base.v1.CreateTripRequest"><span class="badge">M</span>CreateTripRequest</a>
-                </li>
-              
-                <li>
                   <a href="#v10proto.base.v1.DeleteVehicleRequest"><span class="badge">M</span>DeleteVehicleRequest</a>
                 </li>
               
@@ -285,6 +281,10 @@
               
                 <li>
                   <a href="#v10proto.base.v1.RegisterVehicleRequest"><span class="badge">M</span>RegisterVehicleRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#v10proto.base.v1.StartTripRequest"><span class="badge">M</span>StartTripRequest</a>
                 </li>
               
                 <li>
@@ -871,37 +871,6 @@ is `TakeSnapshot()`, the inferred response type is
       <p></p>
 
       
-        <h3 id="v10proto.base.v1.CreateTripRequest">CreateTripRequest</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>vin</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Required. Vehicle Identification Number (VIN) to be used for the trip. </p></td>
-                </tr>
-              
-                <tr>
-                  <td>startTime</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Required. Start time of the trip </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="v10proto.base.v1.DeleteVehicleRequest">DeleteVehicleRequest</h3>
         <p></p>
 
@@ -1020,6 +989,37 @@ is `TakeSnapshot()`, the inferred response type is
                   <td><a href="#v10proto.base.v1.Vehicle">Vehicle</a></td>
                   <td></td>
                   <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="v10proto.base.v1.StartTripRequest">StartTripRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>vin</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Required. Vehicle Identification Number (VIN) to be used for the trip. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>startTime</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Required. Start time of the trip </p></td>
                 </tr>
               
             </tbody>
@@ -1239,7 +1239,7 @@ is `TakeSnapshot()`, the inferred response type is
             
               <tr>
                 <td>StartTrip</td>
-                <td><a href="#v10proto.base.v1.CreateTripRequest">CreateTripRequest</a></td>
+                <td><a href="#v10proto.base.v1.StartTripRequest">StartTripRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>Start a trip.</p></td>
               </tr>

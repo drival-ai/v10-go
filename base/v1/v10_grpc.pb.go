@@ -48,7 +48,7 @@ type V10Client interface {
 	// Update user metadata by id.
 	UpdateUserMetadata(ctx context.Context, in *UpdateUserMetadataRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Start a trip.
-	StartTrip(ctx context.Context, in *CreateTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	StartTrip(ctx context.Context, in *StartTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type v10Client struct {
@@ -119,7 +119,7 @@ func (c *v10Client) UpdateUserMetadata(ctx context.Context, in *UpdateUserMetada
 	return out, nil
 }
 
-func (c *v10Client) StartTrip(ctx context.Context, in *CreateTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *v10Client) StartTrip(ctx context.Context, in *StartTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, V10_StartTrip_FullMethodName, in, out, cOpts...)
@@ -148,7 +148,7 @@ type V10Server interface {
 	// Update user metadata by id.
 	UpdateUserMetadata(context.Context, *UpdateUserMetadataRequest) (*emptypb.Empty, error)
 	// Start a trip.
-	StartTrip(context.Context, *CreateTripRequest) (*emptypb.Empty, error)
+	StartTrip(context.Context, *StartTripRequest) (*emptypb.Empty, error)
 	mustEmbedUnimplementedV10Server()
 }
 
@@ -174,7 +174,7 @@ func (UnimplementedV10Server) UpdateVehicle(context.Context, *UpdateVehicleReque
 func (UnimplementedV10Server) UpdateUserMetadata(context.Context, *UpdateUserMetadataRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserMetadata not implemented")
 }
-func (UnimplementedV10Server) StartTrip(context.Context, *CreateTripRequest) (*emptypb.Empty, error) {
+func (UnimplementedV10Server) StartTrip(context.Context, *StartTripRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method StartTrip not implemented")
 }
 func (UnimplementedV10Server) mustEmbedUnimplementedV10Server() {}
@@ -299,7 +299,7 @@ func _V10_UpdateUserMetadata_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _V10_StartTrip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateTripRequest)
+	in := new(StartTripRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -311,7 +311,7 @@ func _V10_StartTrip_Handler(srv interface{}, ctx context.Context, dec func(inter
 		FullMethod: V10_StartTrip_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(V10Server).StartTrip(ctx, req.(*CreateTripRequest))
+		return srv.(V10Server).StartTrip(ctx, req.(*StartTripRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
