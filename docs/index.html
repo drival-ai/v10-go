@@ -260,6 +260,10 @@
             <ul>
               
                 <li>
+                  <a href="#v10proto.base.v1.CreateTripRequest"><span class="badge">M</span>CreateTripRequest</a>
+                </li>
+              
+                <li>
                   <a href="#v10proto.base.v1.DeleteVehicleRequest"><span class="badge">M</span>DeleteVehicleRequest</a>
                 </li>
               
@@ -284,7 +288,15 @@
                 </li>
               
                 <li>
+                  <a href="#v10proto.base.v1.UpdateUserMetadataRequest"><span class="badge">M</span>UpdateUserMetadataRequest</a>
+                </li>
+              
+                <li>
                   <a href="#v10proto.base.v1.UpdateVehicleRequest"><span class="badge">M</span>UpdateVehicleRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#v10proto.base.v1.UserMetadata"><span class="badge">M</span>UserMetadata</a>
                 </li>
               
                 <li>
@@ -859,6 +871,37 @@ is `TakeSnapshot()`, the inferred response type is
       <p></p>
 
       
+        <h3 id="v10proto.base.v1.CreateTripRequest">CreateTripRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>vin</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Required. Vehicle Identification Number (VIN) to be used for the trip. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>startTime</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Required. Start time of the trip </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="v10proto.base.v1.DeleteVehicleRequest">DeleteVehicleRequest</h3>
         <p></p>
 
@@ -986,6 +1029,37 @@ is `TakeSnapshot()`, the inferred response type is
 
         
       
+        <h3 id="v10proto.base.v1.UpdateUserMetadataRequest">UpdateUserMetadataRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Required. User ID to update. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>userMetadata</td>
+                  <td><a href="#v10proto.base.v1.UserMetadata">UserMetadata</a></td>
+                  <td></td>
+                  <td><p>Required. User metadata. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="v10proto.base.v1.UpdateVehicleRequest">UpdateVehicleRequest</h3>
         <p></p>
 
@@ -1008,6 +1082,44 @@ is `TakeSnapshot()`, the inferred response type is
                   <td><a href="#v10proto.base.v1.Vehicle">Vehicle</a></td>
                   <td></td>
                   <td><p>Required. Vehicle data. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="v10proto.base.v1.UserMetadata">UserMetadata</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>rank</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>points</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>
@@ -1118,6 +1230,20 @@ is `TakeSnapshot()`, the inferred response type is
                 <td><p>Update vehicle by VIN.</p></td>
               </tr>
             
+              <tr>
+                <td>UpdateUserMetadata</td>
+                <td><a href="#v10proto.base.v1.UpdateUserMetadataRequest">UpdateUserMetadataRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>Update user metadata by id.</p></td>
+              </tr>
+            
+              <tr>
+                <td>StartTrip</td>
+                <td><a href="#v10proto.base.v1.CreateTripRequest">CreateTripRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>Start a trip.</p></td>
+              </tr>
+            
           </tbody>
         </table>
 
@@ -1182,6 +1308,26 @@ is `TakeSnapshot()`, the inferred response type is
                 <td>UpdateVehicle</td>
                 <td>PUT</td>
                 <td>/v10/vehicle/{vin}</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>UpdateUserMetadata</td>
+                <td>PUT</td>
+                <td>/v10/usermetadata/{id}</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>StartTrip</td>
+                <td>POST</td>
+                <td>/v10/trip/start</td>
                 <td>*</td>
               </tr>
               
