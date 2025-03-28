@@ -48,7 +48,7 @@ type V10Client interface {
 	UpdateVehicle(ctx context.Context, in *UpdateVehicleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Update user metadata by id.
 	UpdateUserMetadata(ctx context.Context, in *UpdateUserMetadataRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	// Update user metadata by id.
+	// Get user metadata by id.
 	GetUserMetadata(ctx context.Context, in *GetUserMetadataRequest, opts ...grpc.CallOption) (*GetUserMetadataResponse, error)
 	// Start a trip.
 	StartTrip(ctx context.Context, in *StartTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -160,7 +160,7 @@ type V10Server interface {
 	UpdateVehicle(context.Context, *UpdateVehicleRequest) (*emptypb.Empty, error)
 	// Update user metadata by id.
 	UpdateUserMetadata(context.Context, *UpdateUserMetadataRequest) (*emptypb.Empty, error)
-	// Update user metadata by id.
+	// Get user metadata by id.
 	GetUserMetadata(context.Context, *GetUserMetadataRequest) (*GetUserMetadataResponse, error)
 	// Start a trip.
 	StartTrip(context.Context, *StartTripRequest) (*emptypb.Empty, error)
