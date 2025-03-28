@@ -272,6 +272,14 @@
                 </li>
               
                 <li>
+                  <a href="#v10proto.base.v1.GetUserMetadataRequest"><span class="badge">M</span>GetUserMetadataRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#v10proto.base.v1.GetUserMetadataResponse"><span class="badge">M</span>GetUserMetadataResponse</a>
+                </li>
+              
+                <li>
                   <a href="#v10proto.base.v1.ListVehiclesRequest"><span class="badge">M</span>ListVehiclesRequest</a>
                 </li>
               
@@ -943,6 +951,54 @@ is `TakeSnapshot()`, the inferred response type is
 
         
       
+        <h3 id="v10proto.base.v1.GetUserMetadataRequest">GetUserMetadataRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Required. User ID to get. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="v10proto.base.v1.GetUserMetadataResponse">GetUserMetadataResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>userMetadata</td>
+                  <td><a href="#v10proto.base.v1.UserMetadata">UserMetadata</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="v10proto.base.v1.ListVehiclesRequest">ListVehiclesRequest</h3>
         <p>Request message for the RegisterVehicle rpc.</p>
 
@@ -1238,6 +1294,13 @@ is `TakeSnapshot()`, the inferred response type is
               </tr>
             
               <tr>
+                <td>GetUserMetadata</td>
+                <td><a href="#v10proto.base.v1.GetUserMetadataRequest">GetUserMetadataRequest</a></td>
+                <td><a href="#v10proto.base.v1.GetUserMetadataResponse">GetUserMetadataResponse</a></td>
+                <td><p>Update user metadata by id.</p></td>
+              </tr>
+            
+              <tr>
                 <td>StartTrip</td>
                 <td><a href="#v10proto.base.v1.StartTripRequest">StartTripRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
@@ -1319,6 +1382,16 @@ is `TakeSnapshot()`, the inferred response type is
                 <td>PUT</td>
                 <td>/v10/usermetadata/{id}</td>
                 <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetUserMetadata</td>
+                <td>GET</td>
+                <td>/v10/usermetadata/{id}</td>
+                <td></td>
               </tr>
               
             
