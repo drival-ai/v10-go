@@ -272,11 +272,23 @@
                 </li>
               
                 <li>
+                  <a href="#v10proto.base.v1.EndTripRequest"><span class="badge">M</span>EndTripRequest</a>
+                </li>
+              
+                <li>
                   <a href="#v10proto.base.v1.GetUserMetadataRequest"><span class="badge">M</span>GetUserMetadataRequest</a>
                 </li>
               
                 <li>
                   <a href="#v10proto.base.v1.GetUserMetadataResponse"><span class="badge">M</span>GetUserMetadataResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#v10proto.base.v1.ListTripsRequest"><span class="badge">M</span>ListTripsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#v10proto.base.v1.ListTripsResponse"><span class="badge">M</span>ListTripsResponse</a>
                 </li>
               
                 <li>
@@ -293,6 +305,14 @@
               
                 <li>
                   <a href="#v10proto.base.v1.StartTripRequest"><span class="badge">M</span>StartTripRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#v10proto.base.v1.Trip"><span class="badge">M</span>Trip</a>
+                </li>
+              
+                <li>
+                  <a href="#v10proto.base.v1.UpdateTripRequest"><span class="badge">M</span>UpdateTripRequest</a>
                 </li>
               
                 <li>
@@ -951,6 +971,37 @@ is `TakeSnapshot()`, the inferred response type is
 
         
       
+        <h3 id="v10proto.base.v1.EndTripRequest">EndTripRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Required. Trip ID to end. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>endTime</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Required. End time of the trip </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="v10proto.base.v1.GetUserMetadataRequest">GetUserMetadataRequest</h3>
         <p></p>
 
@@ -989,6 +1040,37 @@ is `TakeSnapshot()`, the inferred response type is
                   <td>userMetadata</td>
                   <td><a href="#v10proto.base.v1.UserMetadata">UserMetadata</a></td>
                   <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="v10proto.base.v1.ListTripsRequest">ListTripsRequest</h3>
+        <p></p>
+
+        
+
+        
+      
+        <h3 id="v10proto.base.v1.ListTripsResponse">ListTripsResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>trips</td>
+                  <td><a href="#v10proto.base.v1.Trip">Trip</a></td>
+                  <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               
@@ -1076,6 +1158,96 @@ is `TakeSnapshot()`, the inferred response type is
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Required. Start time of the trip </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="v10proto.base.v1.Trip">Trip</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>vin</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>startTime</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>endTime</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>distance</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>points</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="v10proto.base.v1.UpdateTripRequest">UpdateTripRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Required. Trip ID to update. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>trip</td>
+                  <td><a href="#v10proto.base.v1.Trip">Trip</a></td>
+                  <td></td>
+                  <td><p>Required. Trip data. </p></td>
                 </tr>
               
             </tbody>
@@ -1307,6 +1479,27 @@ is `TakeSnapshot()`, the inferred response type is
                 <td><p>Start a trip.</p></td>
               </tr>
             
+              <tr>
+                <td>UpdateTrip</td>
+                <td><a href="#v10proto.base.v1.UpdateTripRequest">UpdateTripRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>Update trip by id.</p></td>
+              </tr>
+            
+              <tr>
+                <td>EndTrip</td>
+                <td><a href="#v10proto.base.v1.EndTripRequest">EndTripRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>End a trip.</p></td>
+              </tr>
+            
+              <tr>
+                <td>ListTrips</td>
+                <td><a href="#v10proto.base.v1.ListVehiclesRequest">ListVehiclesRequest</a></td>
+                <td><a href="#v10proto.base.v1.ListVehiclesResponse">ListVehiclesResponse</a></td>
+                <td><p>List trips.</p></td>
+              </tr>
+            
           </tbody>
         </table>
 
@@ -1402,6 +1595,36 @@ is `TakeSnapshot()`, the inferred response type is
                 <td>POST</td>
                 <td>/v10/trip/start</td>
                 <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>UpdateTrip</td>
+                <td>PUT</td>
+                <td>/v10/trip/{id}</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>EndTrip</td>
+                <td>POST</td>
+                <td>/v10/trip/end</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>ListTrips</td>
+                <td>GET</td>
+                <td>/v10/trip/list</td>
+                <td></td>
               </tr>
               
             

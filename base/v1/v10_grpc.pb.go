@@ -28,6 +28,9 @@ const (
 	V10_UpdateUserMetadata_FullMethodName = "/v10proto.base.v1.V10/UpdateUserMetadata"
 	V10_GetUserMetadata_FullMethodName    = "/v10proto.base.v1.V10/GetUserMetadata"
 	V10_StartTrip_FullMethodName          = "/v10proto.base.v1.V10/StartTrip"
+	V10_UpdateTrip_FullMethodName         = "/v10proto.base.v1.V10/UpdateTrip"
+	V10_EndTrip_FullMethodName            = "/v10proto.base.v1.V10/EndTrip"
+	V10_ListTrips_FullMethodName          = "/v10proto.base.v1.V10/ListTrips"
 )
 
 // V10Client is the client API for V10 service.
@@ -52,6 +55,12 @@ type V10Client interface {
 	GetUserMetadata(ctx context.Context, in *GetUserMetadataRequest, opts ...grpc.CallOption) (*GetUserMetadataResponse, error)
 	// Start a trip.
 	StartTrip(ctx context.Context, in *StartTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	// Update trip by id.
+	UpdateTrip(ctx context.Context, in *UpdateTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	// End a trip.
+	EndTrip(ctx context.Context, in *EndTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	// List trips.
+	ListTrips(ctx context.Context, in *ListVehiclesRequest, opts ...grpc.CallOption) (*ListVehiclesResponse, error)
 }
 
 type v10Client struct {
@@ -142,6 +151,36 @@ func (c *v10Client) StartTrip(ctx context.Context, in *StartTripRequest, opts ..
 	return out, nil
 }
 
+func (c *v10Client) UpdateTrip(ctx context.Context, in *UpdateTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, V10_UpdateTrip_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *v10Client) EndTrip(ctx context.Context, in *EndTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, V10_EndTrip_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *v10Client) ListTrips(ctx context.Context, in *ListVehiclesRequest, opts ...grpc.CallOption) (*ListVehiclesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListVehiclesResponse)
+	err := c.cc.Invoke(ctx, V10_ListTrips_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // V10Server is the server API for V10 service.
 // All implementations must embed UnimplementedV10Server
 // for forward compatibility
@@ -164,6 +203,12 @@ type V10Server interface {
 	GetUserMetadata(context.Context, *GetUserMetadataRequest) (*GetUserMetadataResponse, error)
 	// Start a trip.
 	StartTrip(context.Context, *StartTripRequest) (*emptypb.Empty, error)
+	// Update trip by id.
+	UpdateTrip(context.Context, *UpdateTripRequest) (*emptypb.Empty, error)
+	// End a trip.
+	EndTrip(context.Context, *EndTripRequest) (*emptypb.Empty, error)
+	// List trips.
+	ListTrips(context.Context, *ListVehiclesRequest) (*ListVehiclesResponse, error)
 	mustEmbedUnimplementedV10Server()
 }
 
@@ -194,6 +239,15 @@ func (UnimplementedV10Server) GetUserMetadata(context.Context, *GetUserMetadataR
 }
 func (UnimplementedV10Server) StartTrip(context.Context, *StartTripRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method StartTrip not implemented")
+}
+func (UnimplementedV10Server) UpdateTrip(context.Context, *UpdateTripRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateTrip not implemented")
+}
+func (UnimplementedV10Server) EndTrip(context.Context, *EndTripRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EndTrip not implemented")
+}
+func (UnimplementedV10Server) ListTrips(context.Context, *ListVehiclesRequest) (*ListVehiclesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListTrips not implemented")
 }
 func (UnimplementedV10Server) mustEmbedUnimplementedV10Server() {}
 
@@ -352,6 +406,60 @@ func _V10_StartTrip_Handler(srv interface{}, ctx context.Context, dec func(inter
 	return interceptor(ctx, in, info, handler)
 }
 
+func _V10_UpdateTrip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateTripRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(V10Server).UpdateTrip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: V10_UpdateTrip_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(V10Server).UpdateTrip(ctx, req.(*UpdateTripRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _V10_EndTrip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EndTripRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(V10Server).EndTrip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: V10_EndTrip_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(V10Server).EndTrip(ctx, req.(*EndTripRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _V10_ListTrips_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListVehiclesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(V10Server).ListTrips(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: V10_ListTrips_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(V10Server).ListTrips(ctx, req.(*ListVehiclesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // V10_ServiceDesc is the grpc.ServiceDesc for V10 service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -390,6 +498,18 @@ var V10_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "StartTrip",
 			Handler:    _V10_StartTrip_Handler,
+		},
+		{
+			MethodName: "UpdateTrip",
+			Handler:    _V10_UpdateTrip_Handler,
+		},
+		{
+			MethodName: "EndTrip",
+			Handler:    _V10_EndTrip_Handler,
+		},
+		{
+			MethodName: "ListTrips",
+			Handler:    _V10_ListTrips_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
