@@ -689,7 +689,7 @@ type Trip struct {
 	Vin           string                 `protobuf:"bytes,2,opt,name=vin,proto3" json:"vin,omitempty"`
 	StartTime     string                 `protobuf:"bytes,3,opt,name=startTime,proto3" json:"startTime,omitempty"`
 	EndTime       string                 `protobuf:"bytes,4,opt,name=endTime,proto3" json:"endTime,omitempty"`
-	Distance      int32                  `protobuf:"varint,5,opt,name=distance,proto3" json:"distance,omitempty"`
+	Distance      float32                `protobuf:"fixed32,5,opt,name=distance,proto3" json:"distance,omitempty"`
 	Points        int32                  `protobuf:"varint,6,opt,name=points,proto3" json:"points,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -753,7 +753,7 @@ func (x *Trip) GetEndTime() string {
 	return ""
 }
 
-func (x *Trip) GetDistance() int32 {
+func (x *Trip) GetDistance() float32 {
 	if x != nil {
 		return x.Distance
 	}
@@ -771,8 +771,8 @@ type EndTripRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Required. Trip ID to end.
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Required. Total distance.
-	Distance string `protobuf:"bytes,2,opt,name=distance,proto3" json:"distance,omitempty"`
+	// Required. Total distance in meters
+	Distance float32 `protobuf:"fixed32,2,opt,name=distance,proto3" json:"distance,omitempty"`
 	// Required. Total points earned.
 	Points int32 `protobuf:"varint,3,opt,name=points,proto3" json:"points,omitempty"`
 	// Required. End time of the trip.
@@ -818,11 +818,11 @@ func (x *EndTripRequest) GetId() string {
 	return ""
 }
 
-func (x *EndTripRequest) GetDistance() string {
+func (x *EndTripRequest) GetDistance() float32 {
 	if x != nil {
 		return x.Distance
 	}
-	return ""
+	return 0
 }
 
 func (x *EndTripRequest) GetPoints() int32 {
@@ -1056,11 +1056,11 @@ const file_base_v1_v10_proto_rawDesc = "" +
 	"\x03vin\x18\x02 \x01(\tR\x03vin\x12\x1c\n" +
 	"\tstartTime\x18\x03 \x01(\tR\tstartTime\x12\x18\n" +
 	"\aendTime\x18\x04 \x01(\tR\aendTime\x12\x1a\n" +
-	"\bdistance\x18\x05 \x01(\x05R\bdistance\x12\x16\n" +
+	"\bdistance\x18\x05 \x01(\x02R\bdistance\x12\x16\n" +
 	"\x06points\x18\x06 \x01(\x05R\x06points\"n\n" +
 	"\x0eEndTripRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1a\n" +
-	"\bdistance\x18\x02 \x01(\tR\bdistance\x12\x16\n" +
+	"\bdistance\x18\x02 \x01(\x02R\bdistance\x12\x16\n" +
 	"\x06points\x18\x03 \x01(\x05R\x06points\x12\x18\n" +
 	"\aendTime\x18\x04 \x01(\tR\aendTime\"\x12\n" +
 	"\x10ListTripsRequest\"A\n" +
