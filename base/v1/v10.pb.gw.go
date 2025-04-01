@@ -352,7 +352,7 @@ func local_request_V10_EndTrip_0(ctx context.Context, marshaler runtime.Marshale
 
 func request_V10_ListTrips_0(ctx context.Context, marshaler runtime.Marshaler, client V10Client, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq ListVehiclesRequest
+		protoReq ListTripsRequest
 		metadata runtime.ServerMetadata
 	)
 	io.Copy(io.Discard, req.Body)
@@ -362,7 +362,7 @@ func request_V10_ListTrips_0(ctx context.Context, marshaler runtime.Marshaler, c
 
 func local_request_V10_ListTrips_0(ctx context.Context, marshaler runtime.Marshaler, server V10Server, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq ListVehiclesRequest
+		protoReq ListTripsRequest
 		metadata runtime.ServerMetadata
 	)
 	msg, err := server.ListTrips(ctx, &protoReq)

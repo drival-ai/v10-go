@@ -60,7 +60,7 @@ type V10Client interface {
 	// End a trip.
 	EndTrip(ctx context.Context, in *EndTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// List trips.
-	ListTrips(ctx context.Context, in *ListVehiclesRequest, opts ...grpc.CallOption) (*ListVehiclesResponse, error)
+	ListTrips(ctx context.Context, in *ListTripsRequest, opts ...grpc.CallOption) (*ListTripsResponse, error)
 }
 
 type v10Client struct {
@@ -171,9 +171,9 @@ func (c *v10Client) EndTrip(ctx context.Context, in *EndTripRequest, opts ...grp
 	return out, nil
 }
 
-func (c *v10Client) ListTrips(ctx context.Context, in *ListVehiclesRequest, opts ...grpc.CallOption) (*ListVehiclesResponse, error) {
+func (c *v10Client) ListTrips(ctx context.Context, in *ListTripsRequest, opts ...grpc.CallOption) (*ListTripsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListVehiclesResponse)
+	out := new(ListTripsResponse)
 	err := c.cc.Invoke(ctx, V10_ListTrips_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -208,7 +208,7 @@ type V10Server interface {
 	// End a trip.
 	EndTrip(context.Context, *EndTripRequest) (*emptypb.Empty, error)
 	// List trips.
-	ListTrips(context.Context, *ListVehiclesRequest) (*ListVehiclesResponse, error)
+	ListTrips(context.Context, *ListTripsRequest) (*ListTripsResponse, error)
 	mustEmbedUnimplementedV10Server()
 }
 
@@ -246,7 +246,7 @@ func (UnimplementedV10Server) UpdateTrip(context.Context, *UpdateTripRequest) (*
 func (UnimplementedV10Server) EndTrip(context.Context, *EndTripRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EndTrip not implemented")
 }
-func (UnimplementedV10Server) ListTrips(context.Context, *ListVehiclesRequest) (*ListVehiclesResponse, error) {
+func (UnimplementedV10Server) ListTrips(context.Context, *ListTripsRequest) (*ListTripsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTrips not implemented")
 }
 func (UnimplementedV10Server) mustEmbedUnimplementedV10Server() {}
@@ -443,7 +443,7 @@ func _V10_EndTrip_Handler(srv interface{}, ctx context.Context, dec func(interfa
 }
 
 func _V10_ListTrips_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListVehiclesRequest)
+	in := new(ListTripsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -455,7 +455,7 @@ func _V10_ListTrips_Handler(srv interface{}, ctx context.Context, dec func(inter
 		FullMethod: V10_ListTrips_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(V10Server).ListTrips(ctx, req.(*ListVehiclesRequest))
+		return srv.(V10Server).ListTrips(ctx, req.(*ListTripsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
