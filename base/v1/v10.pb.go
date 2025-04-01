@@ -584,6 +584,51 @@ func (x *StartTripRequest) GetStartTime() string {
 	return ""
 }
 
+type StartTripResponse struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Trip id.
+	Id            string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartTripResponse) Reset() {
+	*x = StartTripResponse{}
+	mi := &file_base_v1_v10_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartTripResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartTripResponse) ProtoMessage() {}
+
+func (x *StartTripResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_base_v1_v10_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartTripResponse.ProtoReflect.Descriptor instead.
+func (*StartTripResponse) Descriptor() ([]byte, []int) {
+	return file_base_v1_v10_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *StartTripResponse) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
 type UpdateTripRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Required. Trip ID to update.
@@ -596,7 +641,7 @@ type UpdateTripRequest struct {
 
 func (x *UpdateTripRequest) Reset() {
 	*x = UpdateTripRequest{}
-	mi := &file_base_v1_v10_proto_msgTypes[11]
+	mi := &file_base_v1_v10_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -608,7 +653,7 @@ func (x *UpdateTripRequest) String() string {
 func (*UpdateTripRequest) ProtoMessage() {}
 
 func (x *UpdateTripRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_base_v1_v10_proto_msgTypes[11]
+	mi := &file_base_v1_v10_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -621,7 +666,7 @@ func (x *UpdateTripRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateTripRequest.ProtoReflect.Descriptor instead.
 func (*UpdateTripRequest) Descriptor() ([]byte, []int) {
-	return file_base_v1_v10_proto_rawDescGZIP(), []int{11}
+	return file_base_v1_v10_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *UpdateTripRequest) GetId() string {
@@ -652,7 +697,7 @@ type Trip struct {
 
 func (x *Trip) Reset() {
 	*x = Trip{}
-	mi := &file_base_v1_v10_proto_msgTypes[12]
+	mi := &file_base_v1_v10_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -664,7 +709,7 @@ func (x *Trip) String() string {
 func (*Trip) ProtoMessage() {}
 
 func (x *Trip) ProtoReflect() protoreflect.Message {
-	mi := &file_base_v1_v10_proto_msgTypes[12]
+	mi := &file_base_v1_v10_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -677,7 +722,7 @@ func (x *Trip) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Trip.ProtoReflect.Descriptor instead.
 func (*Trip) Descriptor() ([]byte, []int) {
-	return file_base_v1_v10_proto_rawDescGZIP(), []int{12}
+	return file_base_v1_v10_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *Trip) GetId() string {
@@ -726,15 +771,19 @@ type EndTripRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Required. Trip ID to end.
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Required. End time of the trip
-	EndTime       string `protobuf:"bytes,2,opt,name=endTime,proto3" json:"endTime,omitempty"`
+	// Required. Total distance.
+	Distance string `protobuf:"bytes,2,opt,name=distance,proto3" json:"distance,omitempty"`
+	// Required. Total points earned.
+	Points int32 `protobuf:"varint,3,opt,name=points,proto3" json:"points,omitempty"`
+	// Required. End time of the trip.
+	EndTime       string `protobuf:"bytes,4,opt,name=endTime,proto3" json:"endTime,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *EndTripRequest) Reset() {
 	*x = EndTripRequest{}
-	mi := &file_base_v1_v10_proto_msgTypes[13]
+	mi := &file_base_v1_v10_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -746,7 +795,7 @@ func (x *EndTripRequest) String() string {
 func (*EndTripRequest) ProtoMessage() {}
 
 func (x *EndTripRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_base_v1_v10_proto_msgTypes[13]
+	mi := &file_base_v1_v10_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -759,7 +808,7 @@ func (x *EndTripRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EndTripRequest.ProtoReflect.Descriptor instead.
 func (*EndTripRequest) Descriptor() ([]byte, []int) {
-	return file_base_v1_v10_proto_rawDescGZIP(), []int{13}
+	return file_base_v1_v10_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *EndTripRequest) GetId() string {
@@ -767,6 +816,20 @@ func (x *EndTripRequest) GetId() string {
 		return x.Id
 	}
 	return ""
+}
+
+func (x *EndTripRequest) GetDistance() string {
+	if x != nil {
+		return x.Distance
+	}
+	return ""
+}
+
+func (x *EndTripRequest) GetPoints() int32 {
+	if x != nil {
+		return x.Points
+	}
+	return 0
 }
 
 func (x *EndTripRequest) GetEndTime() string {
@@ -784,7 +847,7 @@ type ListTripsRequest struct {
 
 func (x *ListTripsRequest) Reset() {
 	*x = ListTripsRequest{}
-	mi := &file_base_v1_v10_proto_msgTypes[14]
+	mi := &file_base_v1_v10_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -796,7 +859,7 @@ func (x *ListTripsRequest) String() string {
 func (*ListTripsRequest) ProtoMessage() {}
 
 func (x *ListTripsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_base_v1_v10_proto_msgTypes[14]
+	mi := &file_base_v1_v10_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -809,7 +872,7 @@ func (x *ListTripsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTripsRequest.ProtoReflect.Descriptor instead.
 func (*ListTripsRequest) Descriptor() ([]byte, []int) {
-	return file_base_v1_v10_proto_rawDescGZIP(), []int{14}
+	return file_base_v1_v10_proto_rawDescGZIP(), []int{15}
 }
 
 type ListTripsResponse struct {
@@ -821,7 +884,7 @@ type ListTripsResponse struct {
 
 func (x *ListTripsResponse) Reset() {
 	*x = ListTripsResponse{}
-	mi := &file_base_v1_v10_proto_msgTypes[15]
+	mi := &file_base_v1_v10_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -833,7 +896,7 @@ func (x *ListTripsResponse) String() string {
 func (*ListTripsResponse) ProtoMessage() {}
 
 func (x *ListTripsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_base_v1_v10_proto_msgTypes[15]
+	mi := &file_base_v1_v10_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -846,7 +909,7 @@ func (x *ListTripsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTripsResponse.ProtoReflect.Descriptor instead.
 func (*ListTripsResponse) Descriptor() ([]byte, []int) {
-	return file_base_v1_v10_proto_rawDescGZIP(), []int{15}
+	return file_base_v1_v10_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *ListTripsResponse) GetTrips() []*Trip {
@@ -866,7 +929,7 @@ type DoRequest struct {
 
 func (x *DoRequest) Reset() {
 	*x = DoRequest{}
-	mi := &file_base_v1_v10_proto_msgTypes[16]
+	mi := &file_base_v1_v10_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -878,7 +941,7 @@ func (x *DoRequest) String() string {
 func (*DoRequest) ProtoMessage() {}
 
 func (x *DoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_base_v1_v10_proto_msgTypes[16]
+	mi := &file_base_v1_v10_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -891,7 +954,7 @@ func (x *DoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DoRequest.ProtoReflect.Descriptor instead.
 func (*DoRequest) Descriptor() ([]byte, []int) {
-	return file_base_v1_v10_proto_rawDescGZIP(), []int{16}
+	return file_base_v1_v10_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *DoRequest) GetData() string {
@@ -911,7 +974,7 @@ type DoResponse struct {
 
 func (x *DoResponse) Reset() {
 	*x = DoResponse{}
-	mi := &file_base_v1_v10_proto_msgTypes[17]
+	mi := &file_base_v1_v10_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -923,7 +986,7 @@ func (x *DoResponse) String() string {
 func (*DoResponse) ProtoMessage() {}
 
 func (x *DoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_base_v1_v10_proto_msgTypes[17]
+	mi := &file_base_v1_v10_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -936,7 +999,7 @@ func (x *DoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DoResponse.ProtoReflect.Descriptor instead.
 func (*DoResponse) Descriptor() ([]byte, []int) {
-	return file_base_v1_v10_proto_rawDescGZIP(), []int{17}
+	return file_base_v1_v10_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *DoResponse) GetData() string {
@@ -982,7 +1045,9 @@ const file_base_v1_v10_proto_rawDesc = "" +
 	"\fuserMetadata\x18\x01 \x01(\v2\x1e.v10proto.base.v1.UserMetadataR\fuserMetadata\"B\n" +
 	"\x10StartTripRequest\x12\x10\n" +
 	"\x03vin\x18\x01 \x01(\tR\x03vin\x12\x1c\n" +
-	"\tstartTime\x18\x02 \x01(\tR\tstartTime\"O\n" +
+	"\tstartTime\x18\x02 \x01(\tR\tstartTime\"#\n" +
+	"\x11StartTripResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"O\n" +
 	"\x11UpdateTripRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12*\n" +
 	"\x04trip\x18\x02 \x01(\v2\x16.v10proto.base.v1.TripR\x04trip\"\x94\x01\n" +
@@ -992,10 +1057,12 @@ const file_base_v1_v10_proto_rawDesc = "" +
 	"\tstartTime\x18\x03 \x01(\tR\tstartTime\x12\x18\n" +
 	"\aendTime\x18\x04 \x01(\tR\aendTime\x12\x1a\n" +
 	"\bdistance\x18\x05 \x01(\x05R\bdistance\x12\x16\n" +
-	"\x06points\x18\x06 \x01(\x05R\x06points\":\n" +
+	"\x06points\x18\x06 \x01(\x05R\x06points\"n\n" +
 	"\x0eEndTripRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n" +
-	"\aendTime\x18\x02 \x01(\tR\aendTime\"\x12\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1a\n" +
+	"\bdistance\x18\x02 \x01(\tR\bdistance\x12\x16\n" +
+	"\x06points\x18\x03 \x01(\x05R\x06points\x12\x18\n" +
+	"\aendTime\x18\x04 \x01(\tR\aendTime\"\x12\n" +
 	"\x10ListTripsRequest\"A\n" +
 	"\x11ListTripsResponse\x12,\n" +
 	"\x05trips\x18\x01 \x03(\v2\x16.v10proto.base.v1.TripR\x05trips\"\x1f\n" +
@@ -1003,7 +1070,7 @@ const file_base_v1_v10_proto_rawDesc = "" +
 	"\x04data\x18\x01 \x01(\tR\x04data\" \n" +
 	"\n" +
 	"DoResponse\x12\x12\n" +
-	"\x04data\x18\x01 \x01(\tR\x04data2\xea\n" +
+	"\x04data\x18\x01 \x01(\tR\x04data2\xf7\n" +
 	"\n" +
 	"\x03V10\x12V\n" +
 	"\x02Do\x12\x1b.v10proto.base.v1.DoRequest\x1a\x1c.v10proto.base.v1.DoResponse\"\x15\x82\xd3\xe4\x93\x02\x0f:\x01*\"\n" +
@@ -1013,8 +1080,8 @@ const file_base_v1_v10_proto_rawDesc = "" +
 	"\rDeleteVehicle\x12&.v10proto.base.v1.DeleteVehicleRequest\x1a\x16.google.protobuf.Empty\"\x1a\x82\xd3\xe4\x93\x02\x14*\x12/v10/vehicle/{vin}\x12n\n" +
 	"\rUpdateVehicle\x12&.v10proto.base.v1.UpdateVehicleRequest\x1a\x16.google.protobuf.Empty\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\x1a\x12/v10/vehicle/{vin}\x12|\n" +
 	"\x12UpdateUserMetadata\x12+.v10proto.base.v1.UpdateUserMetadataRequest\x1a\x16.google.protobuf.Empty\"!\x82\xd3\xe4\x93\x02\x1b:\x01*\x1a\x16/v10/usermetadata/{id}\x12\x86\x01\n" +
-	"\x0fGetUserMetadata\x12(.v10proto.base.v1.GetUserMetadataRequest\x1a).v10proto.base.v1.GetUserMetadataResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v10/usermetadata/{id}\x12c\n" +
-	"\tStartTrip\x12\".v10proto.base.v1.StartTripRequest\x1a\x16.google.protobuf.Empty\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v10/trip/start\x12d\n" +
+	"\x0fGetUserMetadata\x12(.v10proto.base.v1.GetUserMetadataRequest\x1a).v10proto.base.v1.GetUserMetadataResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v10/usermetadata/{id}\x12p\n" +
+	"\tStartTrip\x12\".v10proto.base.v1.StartTripRequest\x1a#.v10proto.base.v1.StartTripResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v10/trip/start\x12d\n" +
 	"\n" +
 	"UpdateTrip\x12#.v10proto.base.v1.UpdateTripRequest\x1a\x16.google.protobuf.Empty\"\x19\x82\xd3\xe4\x93\x02\x13:\x01*\x1a\x0e/v10/trip/{id}\x12]\n" +
 	"\aEndTrip\x12 .v10proto.base.v1.EndTripRequest\x1a\x16.google.protobuf.Empty\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\"\r/v10/trip/end\x12r\n" +
@@ -1036,7 +1103,7 @@ func file_base_v1_v10_proto_rawDescGZIP() []byte {
 	return file_base_v1_v10_proto_rawDescData
 }
 
-var file_base_v1_v10_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
+var file_base_v1_v10_proto_msgTypes = make([]protoimpl.MessageInfo, 19)
 var file_base_v1_v10_proto_goTypes = []any{
 	(*Vehicle)(nil),                   // 0: v10proto.base.v1.Vehicle
 	(*RegisterVehicleRequest)(nil),    // 1: v10proto.base.v1.RegisterVehicleRequest
@@ -1049,14 +1116,15 @@ var file_base_v1_v10_proto_goTypes = []any{
 	(*GetUserMetadataRequest)(nil),    // 8: v10proto.base.v1.GetUserMetadataRequest
 	(*GetUserMetadataResponse)(nil),   // 9: v10proto.base.v1.GetUserMetadataResponse
 	(*StartTripRequest)(nil),          // 10: v10proto.base.v1.StartTripRequest
-	(*UpdateTripRequest)(nil),         // 11: v10proto.base.v1.UpdateTripRequest
-	(*Trip)(nil),                      // 12: v10proto.base.v1.Trip
-	(*EndTripRequest)(nil),            // 13: v10proto.base.v1.EndTripRequest
-	(*ListTripsRequest)(nil),          // 14: v10proto.base.v1.ListTripsRequest
-	(*ListTripsResponse)(nil),         // 15: v10proto.base.v1.ListTripsResponse
-	(*DoRequest)(nil),                 // 16: v10proto.base.v1.DoRequest
-	(*DoResponse)(nil),                // 17: v10proto.base.v1.DoResponse
-	(*emptypb.Empty)(nil),             // 18: google.protobuf.Empty
+	(*StartTripResponse)(nil),         // 11: v10proto.base.v1.StartTripResponse
+	(*UpdateTripRequest)(nil),         // 12: v10proto.base.v1.UpdateTripRequest
+	(*Trip)(nil),                      // 13: v10proto.base.v1.Trip
+	(*EndTripRequest)(nil),            // 14: v10proto.base.v1.EndTripRequest
+	(*ListTripsRequest)(nil),          // 15: v10proto.base.v1.ListTripsRequest
+	(*ListTripsResponse)(nil),         // 16: v10proto.base.v1.ListTripsResponse
+	(*DoRequest)(nil),                 // 17: v10proto.base.v1.DoRequest
+	(*DoResponse)(nil),                // 18: v10proto.base.v1.DoResponse
+	(*emptypb.Empty)(nil),             // 19: google.protobuf.Empty
 }
 var file_base_v1_v10_proto_depIdxs = []int32{
 	0,  // 0: v10proto.base.v1.RegisterVehicleRequest.vehicle:type_name -> v10proto.base.v1.Vehicle
@@ -1064,9 +1132,9 @@ var file_base_v1_v10_proto_depIdxs = []int32{
 	0,  // 2: v10proto.base.v1.UpdateVehicleRequest.vehicle:type_name -> v10proto.base.v1.Vehicle
 	6,  // 3: v10proto.base.v1.UpdateUserMetadataRequest.userMetadata:type_name -> v10proto.base.v1.UserMetadata
 	6,  // 4: v10proto.base.v1.GetUserMetadataResponse.userMetadata:type_name -> v10proto.base.v1.UserMetadata
-	12, // 5: v10proto.base.v1.UpdateTripRequest.trip:type_name -> v10proto.base.v1.Trip
-	12, // 6: v10proto.base.v1.ListTripsResponse.trips:type_name -> v10proto.base.v1.Trip
-	16, // 7: v10proto.base.v1.V10.Do:input_type -> v10proto.base.v1.DoRequest
+	13, // 5: v10proto.base.v1.UpdateTripRequest.trip:type_name -> v10proto.base.v1.Trip
+	13, // 6: v10proto.base.v1.ListTripsResponse.trips:type_name -> v10proto.base.v1.Trip
+	17, // 7: v10proto.base.v1.V10.Do:input_type -> v10proto.base.v1.DoRequest
 	1,  // 8: v10proto.base.v1.V10.RegisterVehicle:input_type -> v10proto.base.v1.RegisterVehicleRequest
 	2,  // 9: v10proto.base.v1.V10.ListVehicles:input_type -> v10proto.base.v1.ListVehiclesRequest
 	4,  // 10: v10proto.base.v1.V10.DeleteVehicle:input_type -> v10proto.base.v1.DeleteVehicleRequest
@@ -1074,19 +1142,19 @@ var file_base_v1_v10_proto_depIdxs = []int32{
 	7,  // 12: v10proto.base.v1.V10.UpdateUserMetadata:input_type -> v10proto.base.v1.UpdateUserMetadataRequest
 	8,  // 13: v10proto.base.v1.V10.GetUserMetadata:input_type -> v10proto.base.v1.GetUserMetadataRequest
 	10, // 14: v10proto.base.v1.V10.StartTrip:input_type -> v10proto.base.v1.StartTripRequest
-	11, // 15: v10proto.base.v1.V10.UpdateTrip:input_type -> v10proto.base.v1.UpdateTripRequest
-	13, // 16: v10proto.base.v1.V10.EndTrip:input_type -> v10proto.base.v1.EndTripRequest
+	12, // 15: v10proto.base.v1.V10.UpdateTrip:input_type -> v10proto.base.v1.UpdateTripRequest
+	14, // 16: v10proto.base.v1.V10.EndTrip:input_type -> v10proto.base.v1.EndTripRequest
 	2,  // 17: v10proto.base.v1.V10.ListTrips:input_type -> v10proto.base.v1.ListVehiclesRequest
-	17, // 18: v10proto.base.v1.V10.Do:output_type -> v10proto.base.v1.DoResponse
-	18, // 19: v10proto.base.v1.V10.RegisterVehicle:output_type -> google.protobuf.Empty
+	18, // 18: v10proto.base.v1.V10.Do:output_type -> v10proto.base.v1.DoResponse
+	19, // 19: v10proto.base.v1.V10.RegisterVehicle:output_type -> google.protobuf.Empty
 	3,  // 20: v10proto.base.v1.V10.ListVehicles:output_type -> v10proto.base.v1.ListVehiclesResponse
-	18, // 21: v10proto.base.v1.V10.DeleteVehicle:output_type -> google.protobuf.Empty
-	18, // 22: v10proto.base.v1.V10.UpdateVehicle:output_type -> google.protobuf.Empty
-	18, // 23: v10proto.base.v1.V10.UpdateUserMetadata:output_type -> google.protobuf.Empty
+	19, // 21: v10proto.base.v1.V10.DeleteVehicle:output_type -> google.protobuf.Empty
+	19, // 22: v10proto.base.v1.V10.UpdateVehicle:output_type -> google.protobuf.Empty
+	19, // 23: v10proto.base.v1.V10.UpdateUserMetadata:output_type -> google.protobuf.Empty
 	9,  // 24: v10proto.base.v1.V10.GetUserMetadata:output_type -> v10proto.base.v1.GetUserMetadataResponse
-	18, // 25: v10proto.base.v1.V10.StartTrip:output_type -> google.protobuf.Empty
-	18, // 26: v10proto.base.v1.V10.UpdateTrip:output_type -> google.protobuf.Empty
-	18, // 27: v10proto.base.v1.V10.EndTrip:output_type -> google.protobuf.Empty
+	11, // 25: v10proto.base.v1.V10.StartTrip:output_type -> v10proto.base.v1.StartTripResponse
+	19, // 26: v10proto.base.v1.V10.UpdateTrip:output_type -> google.protobuf.Empty
+	19, // 27: v10proto.base.v1.V10.EndTrip:output_type -> google.protobuf.Empty
 	3,  // 28: v10proto.base.v1.V10.ListTrips:output_type -> v10proto.base.v1.ListVehiclesResponse
 	18, // [18:29] is the sub-list for method output_type
 	7,  // [7:18] is the sub-list for method input_type
@@ -1106,7 +1174,7 @@ func file_base_v1_v10_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_base_v1_v10_proto_rawDesc), len(file_base_v1_v10_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   18,
+			NumMessages:   19,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

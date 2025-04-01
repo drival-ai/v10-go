@@ -308,6 +308,10 @@
                 </li>
               
                 <li>
+                  <a href="#v10proto.base.v1.StartTripResponse"><span class="badge">M</span>StartTripResponse</a>
+                </li>
+              
+                <li>
                   <a href="#v10proto.base.v1.Trip"><span class="badge">M</span>Trip</a>
                 </li>
               
@@ -989,10 +993,24 @@ is `TakeSnapshot()`, the inferred response type is
                 </tr>
               
                 <tr>
+                  <td>distance</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Required. Total distance. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>points</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>Required. Total points earned. </p></td>
+                </tr>
+              
+                <tr>
                   <td>endTime</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>Required. End time of the trip </p></td>
+                  <td><p>Required. End time of the trip. </p></td>
                 </tr>
               
             </tbody>
@@ -1158,6 +1176,30 @@ is `TakeSnapshot()`, the inferred response type is
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Required. Start time of the trip </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="v10proto.base.v1.StartTripResponse">StartTripResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Trip id. </p></td>
                 </tr>
               
             </tbody>
@@ -1475,7 +1517,7 @@ is `TakeSnapshot()`, the inferred response type is
               <tr>
                 <td>StartTrip</td>
                 <td><a href="#v10proto.base.v1.StartTripRequest">StartTripRequest</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#v10proto.base.v1.StartTripResponse">StartTripResponse</a></td>
                 <td><p>Start a trip.</p></td>
               </tr>
             

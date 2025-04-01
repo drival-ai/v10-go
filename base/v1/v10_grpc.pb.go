@@ -54,7 +54,7 @@ type V10Client interface {
 	// Get user metadata by id.
 	GetUserMetadata(ctx context.Context, in *GetUserMetadataRequest, opts ...grpc.CallOption) (*GetUserMetadataResponse, error)
 	// Start a trip.
-	StartTrip(ctx context.Context, in *StartTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	StartTrip(ctx context.Context, in *StartTripRequest, opts ...grpc.CallOption) (*StartTripResponse, error)
 	// Update trip by id.
 	UpdateTrip(ctx context.Context, in *UpdateTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// End a trip.
@@ -141,9 +141,9 @@ func (c *v10Client) GetUserMetadata(ctx context.Context, in *GetUserMetadataRequ
 	return out, nil
 }
 
-func (c *v10Client) StartTrip(ctx context.Context, in *StartTripRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *v10Client) StartTrip(ctx context.Context, in *StartTripRequest, opts ...grpc.CallOption) (*StartTripResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
+	out := new(StartTripResponse)
 	err := c.cc.Invoke(ctx, V10_StartTrip_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -202,7 +202,7 @@ type V10Server interface {
 	// Get user metadata by id.
 	GetUserMetadata(context.Context, *GetUserMetadataRequest) (*GetUserMetadataResponse, error)
 	// Start a trip.
-	StartTrip(context.Context, *StartTripRequest) (*emptypb.Empty, error)
+	StartTrip(context.Context, *StartTripRequest) (*StartTripResponse, error)
 	// Update trip by id.
 	UpdateTrip(context.Context, *UpdateTripRequest) (*emptypb.Empty, error)
 	// End a trip.
@@ -237,7 +237,7 @@ func (UnimplementedV10Server) UpdateUserMetadata(context.Context, *UpdateUserMet
 func (UnimplementedV10Server) GetUserMetadata(context.Context, *GetUserMetadataRequest) (*GetUserMetadataResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserMetadata not implemented")
 }
-func (UnimplementedV10Server) StartTrip(context.Context, *StartTripRequest) (*emptypb.Empty, error) {
+func (UnimplementedV10Server) StartTrip(context.Context, *StartTripRequest) (*StartTripResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method StartTrip not implemented")
 }
 func (UnimplementedV10Server) UpdateTrip(context.Context, *UpdateTripRequest) (*emptypb.Empty, error) {
