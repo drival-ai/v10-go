@@ -288,15 +288,7 @@
                 </li>
               
                 <li>
-                  <a href="#v10proto.base.v1.ListTripsResponse"><span class="badge">M</span>ListTripsResponse</a>
-                </li>
-              
-                <li>
                   <a href="#v10proto.base.v1.ListVehiclesRequest"><span class="badge">M</span>ListVehiclesRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#v10proto.base.v1.ListVehiclesResponse"><span class="badge">M</span>ListVehiclesResponse</a>
                 </li>
               
                 <li>
@@ -1082,58 +1074,10 @@ is `TakeSnapshot()`, the inferred response type is
 
         
       
-        <h3 id="v10proto.base.v1.ListTripsResponse">ListTripsResponse</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>trips</td>
-                  <td><a href="#v10proto.base.v1.Trip">Trip</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="v10proto.base.v1.ListVehiclesRequest">ListVehiclesRequest</h3>
         <p>Request message for the RegisterVehicle rpc.</p>
 
         
-
-        
-      
-        <h3 id="v10proto.base.v1.ListVehiclesResponse">ListVehiclesResponse</h3>
-        <p>Response message for the ListVehicles rpc.</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>vehicles</td>
-                  <td><a href="#v10proto.base.v1.Vehicle">Vehicle</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -1496,7 +1440,7 @@ is `TakeSnapshot()`, the inferred response type is
               <tr>
                 <td>ListVehicles</td>
                 <td><a href="#v10proto.base.v1.ListVehiclesRequest">ListVehiclesRequest</a></td>
-                <td><a href="#v10proto.base.v1.ListVehiclesResponse">ListVehiclesResponse</a></td>
+                <td><a href="#v10proto.base.v1.Vehicle">Vehicle</a> stream</td>
                 <td><p>List vehicles owned by the user.</p></td>
               </tr>
             
@@ -1552,7 +1496,7 @@ is `TakeSnapshot()`, the inferred response type is
               <tr>
                 <td>ListTrips</td>
                 <td><a href="#v10proto.base.v1.ListTripsRequest">ListTripsRequest</a></td>
-                <td><a href="#v10proto.base.v1.ListTripsResponse">ListTripsResponse</a></td>
+                <td><a href="#v10proto.base.v1.Trip">Trip</a> stream</td>
                 <td><p>List trips.</p></td>
               </tr>
             
