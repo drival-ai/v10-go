@@ -639,14 +639,15 @@ func (x *UpdateTripRequest) GetTrip() *Trip {
 }
 
 type Trip struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Vin           string                 `protobuf:"bytes,2,opt,name=vin,proto3" json:"vin,omitempty"`
-	StartTime     string                 `protobuf:"bytes,3,opt,name=startTime,proto3" json:"startTime,omitempty"`
-	EndTime       string                 `protobuf:"bytes,4,opt,name=endTime,proto3" json:"endTime,omitempty"`
-	Distance      float32                `protobuf:"fixed32,5,opt,name=distance,proto3" json:"distance,omitempty"`
-	Points        int32                  `protobuf:"varint,6,opt,name=points,proto3" json:"points,omitempty"`
-	MapSnapshot   string                 `protobuf:"bytes,7,opt,name=mapSnapshot,proto3" json:"mapSnapshot,omitempty"`
+	state     protoimpl.MessageState `protogen:"open.v1"`
+	Id        string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Vin       string                 `protobuf:"bytes,2,opt,name=vin,proto3" json:"vin,omitempty"`
+	StartTime string                 `protobuf:"bytes,3,opt,name=startTime,proto3" json:"startTime,omitempty"`
+	EndTime   string                 `protobuf:"bytes,4,opt,name=endTime,proto3" json:"endTime,omitempty"`
+	Distance  float32                `protobuf:"fixed32,5,opt,name=distance,proto3" json:"distance,omitempty"`
+	Points    int32                  `protobuf:"varint,6,opt,name=points,proto3" json:"points,omitempty"`
+	// Base64 ecncoded image of the map snapshot.
+	MapSnapshot   string `protobuf:"bytes,7,opt,name=mapSnapshot,proto3" json:"mapSnapshot,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -739,7 +740,8 @@ type EndTripRequest struct {
 	// Required. Total points earned.
 	Points int32 `protobuf:"varint,3,opt,name=points,proto3" json:"points,omitempty"`
 	// Required. End time of the trip.
-	EndTime       string `protobuf:"bytes,4,opt,name=endTime,proto3" json:"endTime,omitempty"`
+	EndTime string `protobuf:"bytes,4,opt,name=endTime,proto3" json:"endTime,omitempty"`
+	// Required. Base64 encoded image of the map snapshot.
 	MapSnapshot   string `protobuf:"bytes,5,opt,name=mapSnapshot,proto3" json:"mapSnapshot,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
