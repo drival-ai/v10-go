@@ -31,7 +31,7 @@ type Vehicle struct {
 	Make          string                 `protobuf:"bytes,2,opt,name=make,proto3" json:"make,omitempty"`
 	Model         string                 `protobuf:"bytes,3,opt,name=model,proto3" json:"model,omitempty"`
 	Year          int32                  `protobuf:"varint,4,opt,name=year,proto3" json:"year,omitempty"`
-	Kilometers    int32                  `protobuf:"varint,5,opt,name=kilometers,proto3" json:"kilometers,omitempty"`
+	Kilometers    float32                `protobuf:"fixed32,5,opt,name=kilometers,proto3" json:"kilometers,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -94,7 +94,7 @@ func (x *Vehicle) GetYear() int32 {
 	return 0
 }
 
-func (x *Vehicle) GetKilometers() int32 {
+func (x *Vehicle) GetKilometers() float32 {
 	if x != nil {
 		return x.Kilometers
 	}
@@ -742,7 +742,9 @@ type EndTripRequest struct {
 	// Required. End time of the trip.
 	EndTime string `protobuf:"bytes,4,opt,name=endTime,proto3" json:"endTime,omitempty"`
 	// Required. Base64 encoded image of the map snapshot.
-	MapSnapshot   string `protobuf:"bytes,5,opt,name=mapSnapshot,proto3" json:"mapSnapshot,omitempty"`
+	MapSnapshot string `protobuf:"bytes,5,opt,name=mapSnapshot,proto3" json:"mapSnapshot,omitempty"`
+	// Required. Vehicle Identification Number (VIN) used for the trip.
+	Vin           string `protobuf:"bytes,6,opt,name=vin,proto3" json:"vin,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -808,6 +810,13 @@ func (x *EndTripRequest) GetEndTime() string {
 func (x *EndTripRequest) GetMapSnapshot() string {
 	if x != nil {
 		return x.MapSnapshot
+	}
+	return ""
+}
+
+func (x *EndTripRequest) GetVin() string {
+	if x != nil {
+		return x.Vin
 	}
 	return ""
 }
@@ -949,7 +958,7 @@ const file_base_v1_v10_proto_rawDesc = "" +
 	"\x05model\x18\x03 \x01(\tR\x05model\x12\x12\n" +
 	"\x04year\x18\x04 \x01(\x05R\x04year\x12\x1e\n" +
 	"\n" +
-	"kilometers\x18\x05 \x01(\x05R\n" +
+	"kilometers\x18\x05 \x01(\x02R\n" +
 	"kilometers\"M\n" +
 	"\x16RegisterVehicleRequest\x123\n" +
 	"\avehicle\x18\x01 \x01(\v2\x19.v10proto.base.v1.VehicleR\avehicle\"\x15\n" +
@@ -985,13 +994,14 @@ const file_base_v1_v10_proto_rawDesc = "" +
 	"\aendTime\x18\x04 \x01(\tR\aendTime\x12\x1a\n" +
 	"\bdistance\x18\x05 \x01(\x02R\bdistance\x12\x16\n" +
 	"\x06points\x18\x06 \x01(\x05R\x06points\x12 \n" +
-	"\vmapSnapshot\x18\a \x01(\tR\vmapSnapshot\"\x90\x01\n" +
+	"\vmapSnapshot\x18\a \x01(\tR\vmapSnapshot\"\xa2\x01\n" +
 	"\x0eEndTripRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1a\n" +
 	"\bdistance\x18\x02 \x01(\x02R\bdistance\x12\x16\n" +
 	"\x06points\x18\x03 \x01(\x05R\x06points\x12\x18\n" +
 	"\aendTime\x18\x04 \x01(\tR\aendTime\x12 \n" +
-	"\vmapSnapshot\x18\x05 \x01(\tR\vmapSnapshot\"\x12\n" +
+	"\vmapSnapshot\x18\x05 \x01(\tR\vmapSnapshot\x12\x10\n" +
+	"\x03vin\x18\x06 \x01(\tR\x03vin\"\x12\n" +
 	"\x10ListTripsRequest\"\x1f\n" +
 	"\tDoRequest\x12\x12\n" +
 	"\x04data\x18\x01 \x01(\tR\x04data\" \n" +
