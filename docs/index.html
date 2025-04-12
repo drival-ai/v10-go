@@ -260,6 +260,10 @@
             <ul>
               
                 <li>
+                  <a href="#v10proto.base.v1.DeleteTripRequest"><span class="badge">M</span>DeleteTripRequest</a>
+                </li>
+              
+                <li>
                   <a href="#v10proto.base.v1.DeleteVehicleRequest"><span class="badge">M</span>DeleteVehicleRequest</a>
                 </li>
               
@@ -895,6 +899,30 @@ is `TakeSnapshot()`, the inferred response type is
       <p></p>
 
       
+        <h3 id="v10proto.base.v1.DeleteTripRequest">DeleteTripRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Required. Trip ID to delete. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="v10proto.base.v1.DeleteVehicleRequest">DeleteVehicleRequest</h3>
         <p></p>
 
@@ -1507,6 +1535,13 @@ is `TakeSnapshot()`, the inferred response type is
                 <td><p>List trips.</p></td>
               </tr>
             
+              <tr>
+                <td>DeleteTrip</td>
+                <td><a href="#v10proto.base.v1.DeleteTripRequest">DeleteTripRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>Deletes a trip by id.</p></td>
+              </tr>
+            
           </tbody>
         </table>
 
@@ -1631,6 +1666,16 @@ is `TakeSnapshot()`, the inferred response type is
                 <td>ListTrips</td>
                 <td>GET</td>
                 <td>/v10/trip/list</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>DeleteTrip</td>
+                <td>DELETE</td>
+                <td>/v10/trip/{id}</td>
                 <td></td>
               </tr>
               
